@@ -1,5 +1,6 @@
 package main;
 
+import Login.Login;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
@@ -12,11 +13,17 @@ public class LoginController {
     @FXML private TextField username;
     @FXML private PasswordField password;
 
+    Login loginSystem = new Login();
+    String userName = username.getText();
+    String passWD = password.getText();
+
     @FXML protected void handleLogin(ActionEvent event) {
 
-        actiontarget.setText("Login button pressed with\nUsername: "
-                + username.getText()
-                + "\nPassword: "
-                + password.getText());
+        if( loginSystem.login(userName, passWD, actiontarget ))
+        {
+            actiontarget.setText("Welcome, "
+                    + userName
+                    + "!\n");
+        }
     }
 }

@@ -14,10 +14,12 @@ public class LoginController {
     @FXML private PasswordField password;
 
     Login loginSystem = new Login();
-    String userName = username.getText();
-    String passWD = password.getText();
+
 
     @FXML protected void handleLogin(ActionEvent event) {
+
+        String userName = username.getText();
+        String passWD = password.getText();
 
         if( loginSystem.login(userName, passWD, actiontarget ))
         {

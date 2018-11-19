@@ -1,18 +1,66 @@
 package Login;
 
 import javafx.scene.text.Text;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Scanner;
+import java.sql.*;
 
 public class Login {
 
-    PasswordAuthentication authenticator = new PasswordAuthentication();
-    String filename = "Users.txt";
+    //PasswordAuthentication authenticator = new PasswordAuthentication();
+    //String filename = "Users.txt";
 
+    public boolean login(String username, String password, Text actiontarget)
+    {
+        boolean result = false;
+        boolean user_exists = false;
+        boolean password_correct = false;
+
+        Connection conn = null;
+        //File file  = new File(filename);
+        //Scanner inputFile = null;
+        /*try {
+            inputFile = new Scanner(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }*/
+
+        /*while(inputFile.hasNext())
+        {
+            String us_name = inputFile.next();
+            String pass_toked = inputFile.next();
+            String us_type = inputFile.next();
+            if(us_name.equals(username))
+            {
+                user_exists = true;
+                if(authenticator.authenticate(password,pass_toked))
+                {
+                    password_correct = true;
+                }
+                break;
+            }
+        }*/
+        if( user_exists)
+        {
+            if(password_correct)
+            {
+                // DO THE ACTION
+                result = true;
+            }
+            else
+            {
+                //System.out.println("Password is not correct!");
+                actiontarget.setText("Password is not correct!");
+            }
+        }
+        else
+        {
+            //System.out.println("No user with this username!");
+            actiontarget.setText("No user with this username!");
+        }
+        //inputFile.close();
+        return  result;
+    }
+
+    /*
     public boolean addUser(String username, String passwd, String usertype)
     {
         boolean result = false;
@@ -40,56 +88,5 @@ public class Login {
         }
         return result;
     }
-
-
-    public boolean login(String username, String password, Text actiontarget)
-    {
-        boolean result = false;
-        File file  = new File(filename);
-        Scanner inputFile = null;
-        try {
-            inputFile = new Scanner(file);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        boolean user_exists = false;
-        boolean password_correct = false;
-        while(inputFile.hasNext())
-        {
-            String us_name = inputFile.next();
-            String pass_toked = inputFile.next();
-            String us_type = inputFile.next();
-            if(us_name.equals(username))
-            {
-                user_exists = true;
-                if(authenticator.authenticate(password,pass_toked))
-                {
-                    password_correct = true;
-                }
-                break;
-            }
-
-        }
-        if( user_exists)
-        {
-            if(password_correct)
-            {
-                // DO THE ACTION
-                result = true;
-            }
-            else
-            {
-                //System.out.println("Password is not correct!");
-                actiontarget.setText("Password is not correct!");
-            }
-        }
-        else
-        {
-            //System.out.println("No user with this username!");
-            actiontarget.setText("No user with this username!");
-        }
-        inputFile.close();
-        return  result;
-    }
-
+    */
 }

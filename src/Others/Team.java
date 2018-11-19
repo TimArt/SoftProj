@@ -13,7 +13,7 @@ public class Team {
     // ASSOCIATION: Team - Submitter
     private ArrayList<Submitter> consistsOf = new ArrayList<Submitter>();
     // ASSOCIATION: Team - RPM
-    private RPM isAssigmedTo;
+    private RPM isAssignedTo;
     // ASSOCIATION: Team - Submission Group
     private ArrayList<SubmissionGroup> submitted = new ArrayList<>();
 

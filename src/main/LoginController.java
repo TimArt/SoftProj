@@ -12,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 
 public class LoginController {
@@ -48,5 +49,12 @@ public class LoginController {
             appStage.show();
 
         }
+    }
+
+    @FXML protected  void goToRegistrationPage(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
+        Parent studentRoot = FXMLLoader.load (getClass().getResource("register.fxml"));
+        Stage appStage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+        appStage.setScene(new Scene(studentRoot));
+        appStage.show();
     }
 }

@@ -10,7 +10,8 @@ public class Admin extends User {
     // User will need to change the password after his/her first login.
     public boolean addUser(String username, String password, String usertype, Login loginSystem)
     {
-        return loginSystem.addUser(username,password, usertype);
+        //return loginSystem.addUser(username,password, usertype);
+        return false;
     }
 
     public void removeUser(int id)

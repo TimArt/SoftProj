@@ -2,12 +2,15 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="305.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.LoginController">
    <center>
@@ -17,6 +20,7 @@
             <TextField fx:id="username" promptText="Username" />
             <PasswordField fx:id="password" promptText="Password" />
             <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleLogin" prefHeight="27.0" prefWidth="296.0" text="Login" />
+            <TextFlow prefHeight="200.0" prefWidth="200.0" textAlignment="CENTER"> <Label text="Don't have an account?  " /><Label onMouseClicked="#goToRegistrationPage" text="Create New Account" textFill="#090c9a" underline="true" /></TextFlow>
             <Text fx:id="actiontarget" />
          </children>
          <padding>

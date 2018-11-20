@@ -43,4 +43,9 @@ public class Lecturer extends User {
         return;
     }
 
+    public Lecturer(String username, int userID) {
+        super(username, userID);
+    }
+
+
 }

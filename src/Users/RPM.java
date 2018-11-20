@@ -22,4 +22,8 @@ public class RPM extends User {
         return;
     }
 
+    public RPM(String username, int userID) {
+        super(username,userID);
+    }
+
 }

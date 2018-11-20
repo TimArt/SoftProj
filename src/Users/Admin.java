@@ -1,9 +1,14 @@
 package Users;
 
 import Login.Login;
+import Login.LoginReturn;
 
 public class Admin extends User {
 
+
+    public Admin(String username, int userID) {
+        super(username, userID);
+    }
 
     // Admin creates User object with username and password
     // and informs the User about his/her username and password.

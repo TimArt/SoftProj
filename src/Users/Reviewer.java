@@ -23,4 +23,8 @@ public class Reviewer extends User {
         return dummy;
     }
 
+    public Reviewer(String username, int userID) {
+        super(username,userID);
+    }
+
 }

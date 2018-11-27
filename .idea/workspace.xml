@@ -4,19 +4,12 @@
     <bookmark url="file://$PROJECT_DIR$/src/main/RegisterController.java" line="38" mnemonic="7" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Integrated Askar's Login with Database,&#10;Integrated Tim's GUI for Login With My GUI for Registration,&#10;Integrated Code for Registering New User,&#10;Added Code so that Only a Student can Access the Submit Artifact Page">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Integrates DB for StudentSubmit">
+      <change afterPath="$PROJECT_DIR$/src/main/Database.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SoftProj/main/LoginController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SoftProj/main/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SoftProj/main/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SoftProj/main/login.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Login/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/CreateTeamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/CreateTeamController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/RegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/StudentSubmitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/StudentSubmitController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/register.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -215,13 +208,13 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="fxml" value="7" />
-          <entry key="java" value="19" />
+          <entry key="java" value="21" />
           <entry key="sql" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="19" />
+          <entry key="JAVA" value="21" />
           <entry key="Scratch" value="3" />
           <entry key="XML" value="7" />
         </counts>
@@ -229,15 +222,15 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="fxml" value="16" />
-          <entry key="java" value="1202" />
+          <entry key="java" value="1287" />
           <entry key="sql" value="52" />
-          <entry key="txt" value="241" />
+          <entry key="txt" value="276" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1202" />
-          <entry key="PLAIN_TEXT" value="241" />
+          <entry key="JAVA" value="1287" />
+          <entry key="PLAIN_TEXT" value="276" />
           <entry key="Scratch" value="52" />
           <entry key="XML" value="16" />
         </counts>
@@ -257,8 +250,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="67" column="40" lean-forward="true" selection-start-line="64" selection-start-column="24" selection-end-line="67" selection-end-column="40" />
+            <state relative-caret-position="248">
+              <caret line="46" column="55" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="55" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Login/Login.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="241">
+              <caret line="16" column="47" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -269,8 +274,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/RegisterController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="37" column="55" selection-start-line="37" selection-start-column="55" selection-end-line="37" selection-end-column="55" />
+            <state relative-caret-position="-640">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -278,8 +285,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Users/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="95" column="71" selection-start-line="95" selection-start-column="71" selection-end-line="95" selection-end-column="71" />
+            <state relative-caret-position="462">
+              <caret line="43" column="13" lean-forward="true" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/Database.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="88">
+              <caret line="4" column="40" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -315,7 +334,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/cbb3b0fd-9a07-4627-9049-812673d63875/console.sql">
           <provider selected="true" editor-type-id="text-editor">
             <state>
@@ -333,28 +352,6 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/register.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="24" column="72" selection-start-line="24" selection-start-column="72" selection-end-line="24" selection-end-column="72" />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -367,7 +364,13 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>getGestureSource</find>
+      <find>conn = DriverManager.getConnection(&quot;jdbc:mysql://localhost/softproj?useSSL=false&quot;,                             &quot;root&quot;,                             &quot;Meeral69&quot;);</find>
+      <find>conn \= DriverManager\.getConnection\(\&quot;jdbc\:mysql\:\/\/localhost\/softproj\?useSSL\=false\&quot;\,\n                            \&quot;root\&quot;\,\n                            \&quot;Meeral69\&quot;\)\;</find>
     </findStrings>
+    <replaceStrings>
+      <replace />
+      <replace>conn = Database.createConnection();</replace>
+    </replaceStrings>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -405,14 +408,15 @@
         <option value="$PROJECT_DIR$/src/main/ArtifactListViewCell.java" />
         <option value="$PROJECT_DIR$/src/main/ListArtifact.java" />
         <option value="$PROJECT_DIR$/src/main/login.fxml" />
-        <option value="$PROJECT_DIR$/src/Login/Login.java" />
-        <option value="$PROJECT_DIR$/src/main/LoginController.java" />
         <option value="$PROJECT_DIR$/src/main/register.fxml" />
         <option value="$PROJECT_DIR$/src/main/CreateTeamController.java" />
         <option value="$PROJECT_DIR$/src/main/StudentSubmitController.java" />
-        <option value="$PROJECT_DIR$/src/Users/User.java" />
         <option value="$PROJECT_DIR$/src/main/RegisterController.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/cbb3b0fd-9a07-4627-9049-812673d63875/console.sql" />
+        <option value="$PROJECT_DIR$/src/main/Database.java" />
+        <option value="$PROJECT_DIR$/src/main/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/Users/User.java" />
+        <option value="$PROJECT_DIR$/src/Login/Login.java" />
       </list>
     </option>
   </component>
@@ -505,8 +509,8 @@
     <property name="SearchEverywhereHistoryKey" value="artifactPhase&#9;PSI&#9;JAVA://main.ListArtifact#artifactPhase" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543283358646" />
-    <property name="database.console.LAST_STATE" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543285031124" />
+    <property name="database.console.LAST_STATE" value="false" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Facets" />
@@ -748,7 +752,7 @@
       <workItem from="1542679024155" duration="7201000" />
       <workItem from="1542743594858" duration="1282000" />
       <workItem from="1542757253835" duration="891000" />
-      <workItem from="1543277395392" duration="6087000" />
+      <workItem from="1543277395392" duration="7305000" />
     </task>
     <task id="LOCAL-00001" summary="Askar">
       <created>1541967330783</created>
@@ -778,11 +782,18 @@
       <option name="project" value="LOCAL" />
       <updated>1542689832146</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Integrates DB for StudentSubmit">
+      <created>1543283532204</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1543283532204</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50367000" />
+    <option name="totallyTimeSpent" value="51585000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -797,7 +808,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.1609808" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.1609808" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -821,7 +832,7 @@
       <window_info anchor="bottom" id="Messages" order="13" weight="0.15618221" />
       <window_info anchor="bottom" id="Database Changes" order="14" weight="0.3299363" />
       <window_info anchor="bottom" id="Terminal" order="15" weight="0.32866243" />
-      <window_info active="true" anchor="bottom" id="Database Console" order="16" visible="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Database Console" order="16" visible="true" weight="0.329718" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24964234" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -883,7 +894,8 @@
     <MESSAGE value="Askar" />
     <MESSAGE value="Integrated Tim's GUI change view with Askar's login authentication and classes." />
     <MESSAGE value="Integrated Askar's Login with Database&#10;Integrated Tim's GUI for Login With My GUI for Registration&#10;Integrated Code for Registering New User&#10;Added Code so that Only a Student can Access the Submit Artifact Page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Integrated Askar's Login with Database&#10;Integrated Tim's GUI for Login With My GUI for Registration&#10;Integrated Code for Registering New User&#10;Added Code so that Only a Student can Access the Submit Artifact Page" />
+    <MESSAGE value="Integrates DB for StudentSubmit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Integrates DB for StudentSubmit" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -933,13 +945,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Login/Login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -1009,6 +1014,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/cbb3b0fd-9a07-4627-9049-812673d63875/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="10" selection-start-column="10" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Database.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="40" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/StudentRootController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -1016,10 +1035,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/RegisterController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-640">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="67" column="40" lean-forward="true" selection-start-line="64" selection-start-column="24" selection-end-line="67" selection-end-column="40" />
+        <state relative-caret-position="248">
+          <caret line="46" column="55" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1028,22 +1056,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Users/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="95" column="71" selection-start-line="95" selection-start-column="71" selection-end-line="95" selection-end-column="71" />
+        <state relative-caret-position="462">
+          <caret line="43" column="13" lean-forward="true" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/RegisterController.java">
+    <entry file="file://$PROJECT_DIR$/src/Login/Login.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="37" column="55" selection-start-line="37" selection-start-column="55" selection-end-line="37" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/cbb3b0fd-9a07-4627-9049-812673d63875/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="10" selection-start-column="10" selection-end-column="10" />
+        <state relative-caret-position="241">
+          <caret line="16" column="47" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

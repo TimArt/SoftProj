@@ -44,9 +44,7 @@ public class LoginController {
 
             if(result == "Successful Login!"){
                 try{
-                    conn = DriverManager.getConnection("jdbc:mysql://localhost/softproj?useSSL=false",
-                            "root",
-                            "Meeral69");
+                    conn = Database.createConnection();
 
                     String query = "SELECT * FROM user WHERE email = ? and role = ?";
 

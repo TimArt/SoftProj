@@ -1,5 +1,7 @@
 package Users;
 
+import main.Database;
+
 import java.sql.*;
 
 public class User {
@@ -40,9 +42,7 @@ public class User {
         Connection conn = null;
 
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost/softproj?useSSL=false",
-                                              "root",
-                                          "Meeral69");
+            conn = Database.createConnection();
 
             String query = "SELECT * FROM user WHERE email =?";
 

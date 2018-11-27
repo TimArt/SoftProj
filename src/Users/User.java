@@ -60,7 +60,7 @@ public class User {
 
             else{
                 try{
-                    query = " insert into User (name, password, role, isApproved, email)" + " values ( ?, ?, ?, ?, ?)";
+                    query = "insert into User (name, password, role, isApproved, email)" + " values ( ?, ?, ?, ?, ?)";
 
                     // create the mysql insert preparedstatement
                     preparedStmt = conn.prepareStatement(query);

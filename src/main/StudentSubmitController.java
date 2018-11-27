@@ -1,5 +1,6 @@
 package main;
 
+import Users.CurrentStaticUser;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -80,11 +81,8 @@ public class StudentSubmitController {
             try {
 
                 // Submit these artifacts by adding their file paths, phase, and type to the database
-                Connection conn = null;
+                Connection conn = Database.createConnection();
 
-                conn = DriverManager.getConnection("jdbc:mysql://localhost/softproj?useSSL=false",
-                        "root",
-                        "Meeral69");
                 String query;
 
                 for (ListArtifact artifact : artifactList) {
@@ -92,14 +90,16 @@ public class StudentSubmitController {
                     //System.out.println(artifact.file.getName() + " - " + artifact.file.getPath() + " - "
                     //                   + artifact.artifactPhase + " - " + artifact.artifactType);
 
-                    query = "INSERT INTO Artifact (name, phase, type, directory) VALUES(?, ?, ?, ?)";
+                    query = "INSERT INTO Artifact (name, phase, type, directory, submitterID, teamID) VALUES(?, ?, ?, ?, ?, ?)";
 
                     // create the mysql insert prepared statement
                     PreparedStatement preparedStmt = conn.prepareStatement(query);
                     preparedStmt.setString (1, artifact.file.getName());
                     preparedStmt.setString (2, artifact.artifactPhase);
                     preparedStmt.setString (3, artifact.artifactType);
-                    preparedStmt.setString (4, artifact.file.getPath() );
+                    preparedStmt.setString (4, artifact.file.getPath());
+                    preparedStmt.setInt (5, CurrentStaticUser.userId);
+                    preparedStmt.setInt (6, CurrentStaticUser.teamId);
 
                     // execute the prepared statement
                     preparedStmt.execute();
@@ -112,7 +112,7 @@ public class StudentSubmitController {
 
             }catch(SQLException ex)
             {
-                System.out. println();
+                System.out. println("SQL Error:" + ex.getMessage());
             }
 
         } else {

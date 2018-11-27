@@ -31,7 +31,7 @@ public class Login {
 
             if( user_exists)
             {
-                query = "SELECT * FROM user WHERE email =? AND password = ?";
+                query = "SELECT * FROM User WHERE email =? AND password = ?";
 
                 // create the mysql insert prepared statement
                 preparedStmt = conn.prepareStatement(query);

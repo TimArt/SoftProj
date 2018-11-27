@@ -92,7 +92,7 @@ public class StudentSubmitController {
                     //System.out.println(artifact.file.getName() + " - " + artifact.file.getPath() + " - "
                     //                   + artifact.artifactPhase + " - " + artifact.artifactType);
 
-                    query = "INSERT INTO artifact (name, phase, type, directory) VALUES(?, ?, ?, ?)";
+                    query = "INSERT INTO Artifact (name, phase, type, directory) VALUES(?, ?, ?, ?)";
 
                     // create the mysql insert prepared statement
                     PreparedStatement preparedStmt = conn.prepareStatement(query);

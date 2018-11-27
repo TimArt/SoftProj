@@ -46,7 +46,7 @@ public class LoginController {
                 try{
                     conn = Database.createConnection();
 
-                    String query = "SELECT * FROM user WHERE email = ? and role = ?";
+                    String query = "SELECT * FROM User WHERE email = ? and role = ?";
 
 
                     // IF USER IS STUDENT

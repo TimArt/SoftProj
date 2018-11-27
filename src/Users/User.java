@@ -44,7 +44,7 @@ public class User {
         try {
             conn = Database.createConnection();
 
-            String query = "SELECT * FROM user WHERE email =?";
+            String query = "SELECT * FROM User WHERE email =?";
 
             // create the mysql insert prepared statement
             PreparedStatement preparedStmt = conn.prepareStatement(query);
@@ -60,7 +60,7 @@ public class User {
 
             else{
                 try{
-                    query = " insert into user (name, password, role, isApproved, email)" + " values ( ?, ?, ?, ?, ?)";
+                    query = " insert into User (name, password, role, isApproved, email)" + " values ( ?, ?, ?, ?, ?)";
 
                     // create the mysql insert preparedstatement
                     preparedStmt = conn.prepareStatement(query);

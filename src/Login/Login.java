@@ -16,7 +16,7 @@ public class Login {
         try{
             conn = Database.createConnection();
 
-            String query = "SELECT * FROM user WHERE email =?";
+            String query = "SELECT * FROM User WHERE email =?";
 
             // create the mysql insert prepared statement
             PreparedStatement preparedStmt = conn.prepareStatement(query);

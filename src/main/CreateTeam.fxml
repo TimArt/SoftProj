@@ -57,7 +57,7 @@
                </children></AnchorPane>
               <AnchorPane maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="80.0" prefWidth="800.0">
                <children>
-                   <Label prefHeight="80.0" prefWidth="800" text="Submit Artifacts" textAlignment="CENTER" BorderPane.alignment="CENTER">
+                   <Label prefHeight="80.0" prefWidth="800" text="Create Team" textAlignment="CENTER" BorderPane.alignment="CENTER">
                        <font>
                            <Font name="System Bold" size="24.0" />
                        </font>

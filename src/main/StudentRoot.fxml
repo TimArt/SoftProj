@@ -15,6 +15,7 @@
       <VBox prefHeight="200.0" prefWidth="300.0">
          <children>
             <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleMakeSubmission" text="Make Submission" />
+            <Button mnemonicParsing="false" text="Add Members to Team" onAction="#handleAddTeammates"/>
          </children>
       </VBox>
    </children>

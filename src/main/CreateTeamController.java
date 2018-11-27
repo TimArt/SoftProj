@@ -1,6 +1,7 @@
 package main;
 
 import Others.Team;
+import Users.CurrentStaticUser;
 import Users.Submitter;
 import Users.User;
 import javafx.collections.FXCollections;
@@ -24,6 +25,7 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.*;
 import java.util.*;
 
 public class CreateTeamController {
@@ -52,52 +54,78 @@ public class CreateTeamController {
         teammatesListView.setCellFactory(listView -> new TeammatesListViewCell());
     }
 
-    @FXML protected void handleAddUser(ActionEvent event) throws IOException
-    {
+    @FXML protected void handleAddUser(ActionEvent event) throws IOException, SQLException {
         String teammate_userName = teammate_username.getText();
-        String filename = "Users.txt";
-        File file  = new File(filename);
-        Scanner inputFile = null;
-        try {
-            inputFile = new Scanner(file);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        boolean user_exists = false;
-        boolean isSubmitter = false;
-        Integer read_id = new Integer(0);
 
-        while(inputFile.hasNext()) {
-            String string_id = inputFile.next();
-            read_id = Integer.valueOf(string_id);
-            String us_name = inputFile.next();
-            String pass_toked = inputFile.next();
-            String us_type = inputFile.next();
-            if (us_name.equals(teammate_userName)) {
-                user_exists = true;
-                if(us_type.equals("Submitter"))
-                {
-                    isSubmitter = true;
-                }
-                break;
-            }
-        }
+        Connection database = Database.createConnection();
 
-        if(user_exists)
+        // Get information about the teammate
+        String query = "SELECT * FROM User WHERE name = ?";
+        PreparedStatement preparedStatement = database.prepareStatement(query);
+        preparedStatement.setString(1, teammate_userName);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        // If the potential Teammate exists
+        if(resultSet.next())
         {
-            if(isSubmitter) {
-                teammatesList.add(teammate_userName);
-                teammates_IDs.add(read_id);
+            // If they are a student
+            if("Student".equals(resultSet.getString("role"))) {
+
+                // Check if we need to create a Team for the current user and their potential teammate
+                if (CurrentStaticUser.teamId == 0)
+                {
+                    query = "INSERT INTO TEAM VALUES ()";
+                    Statement statement = database.createStatement();
+                    CurrentStaticUser.teamId = statement.executeUpdate (query, Statement.RETURN_GENERATED_KEYS);
+
+                    // Update user to be in the team
+                    statement.execute("UPDATE User SET teamID = " + CurrentStaticUser.teamId + " WHERE userID = " + CurrentStaticUser.userId);
+                }
+
+                // Update Database so teammate is apart of the team
+                Statement statement = database.createStatement();
+                statement.execute("UPDATE User SET teamID = "
+                        + CurrentStaticUser.teamId + " WHERE userID = "
+                        + resultSet.getInt("userID"));
+
             }
             else{
-                target.setText("Username \""+teammate_userName + "\" is not Submitter!\n");
+                target.setText("Username \"" + teammate_userName + "\" is not Submitter!\n");
             }
         }
-        else
+        else // If Teammate does not exist
         {
             target.setText("There is no user with username: "+teammate_userName + "\n");
         }
 
+        refreshTeamateGUILists(database);
+
+        database.close();
+
+    }
+
+    /**
+     * Refreshes the lists shown in the GUI to match what the database says is in the
+     * current Team.
+     * @param database
+     * @throws SQLException
+     */
+    private void refreshTeamateGUILists(Connection database) throws SQLException {
+
+        String query = "SELECT * FROM User WHERE teamID = ?";
+        PreparedStatement preparedStatement = database.prepareStatement(query);
+        preparedStatement.setInt(1, CurrentStaticUser.teamId);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        teammatesList.clear();
+        teammates_IDs.clear();
+
+        while (resultSet.next()) {
+            teammatesList.add(resultSet.getString("name"));
+            teammates_IDs.add(resultSet.getInt("userID"));
+        }
 
     }
 

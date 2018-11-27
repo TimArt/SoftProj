@@ -1,6 +1,7 @@
 package main;
 
 import Login.Login;
+import Users.CurrentStaticUser;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -59,10 +60,31 @@ public class LoginController {
                     // execute the prepared statement
                     ResultSet resultSet = preparedStmt.executeQuery();
                     if(resultSet.next()) {
+
+                        CurrentStaticUser.userId = resultSet.getInt("userID");
+                        CurrentStaticUser.username = resultSet.getString("name");
+                        CurrentStaticUser.password = resultSet.getString("password");
+                        CurrentStaticUser.teamId = resultSet.getInt("teamId");
+
                         preparedStmt.close();
-                        Parent studentRoot = FXMLLoader.load (getClass().getResource("StudentRoot.fxml"));
+
+
+                        // Choose what view to show User
+                        Parent sceneRoot;
+                        if (CurrentStaticUser.teamId != 0)
+                        {
+                            // Go to Student Root since this user has a team
+                            sceneRoot = FXMLLoader.load (getClass().getResource("StudentRoot.fxml"));
+                        }
+                        else
+                        {
+                            // If the current submitter does not have a team, make them create one
+                            sceneRoot = FXMLLoader.load (getClass().getResource("CreateTeam.fxml"));
+                        }
+
+                        // Setup View
                         Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                        appStage.setScene(new Scene (studentRoot));
+                        appStage.setScene(new Scene (sceneRoot));
                         appStage.show();
                     }
 

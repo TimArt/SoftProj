@@ -36,7 +36,7 @@ public class RegisterController {
         String userRole = role.getValue().toString();
 
         StringBuilder errorMessage = new StringBuilder();
-        if (newUser.register(userName, userEmail, passWord, userRole, errorMessage)){
+        if (newUser.register (userName, userEmail, passWord, userRole, errorMessage)){
             Parent studentRoot = FXMLLoader.load (getClass().getResource("login.fxml"));
             Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             appStage.setScene(new Scene (studentRoot));

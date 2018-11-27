@@ -19,4 +19,12 @@ public class StudentRootController {
         appStage.setScene(new Scene(studentRoot));
         appStage.show();
     }
+
+    @FXML
+    protected void handleAddTeammates(ActionEvent event) throws IOException {
+        Parent studentRoot = FXMLLoader.load (getClass().getResource("CreateTeam.fxml"));
+        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        appStage.setScene(new Scene(studentRoot));
+        appStage.show();
+    }
 }

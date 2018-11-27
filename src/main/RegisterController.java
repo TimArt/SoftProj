@@ -35,8 +35,15 @@ public class RegisterController {
         String passWord = password.getText();
         String userRole = role.getValue().toString();
 
-        result = newUser.register(userName, userEmail, passWord, userRole);
-
-        actiontarget.setText(result);
+        StringBuilder errorMessage = new StringBuilder();
+        if (newUser.register(userName, userEmail, passWord, userRole, errorMessage)){
+            Parent studentRoot = FXMLLoader.load (getClass().getResource("login.fxml"));
+            Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            appStage.setScene(new Scene (studentRoot));
+            appStage.show();
+        }
+        else{
+            actiontarget.setText(errorMessage.toString());
+        }
     }
 }

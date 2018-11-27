@@ -1,56 +1,39 @@
 package main;
 
 import Login.Login;
-import Login.LoginReturn;
-import Users.Submitter;
-import Users.User;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.awt.event.MouseEvent;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import java.sql.*;
 
 public class LoginController {
-
-    // GUI control variables:
     @FXML private Text actiontarget;
-    @FXML private TextField username;
+    @FXML private TextField email;
     @FXML private PasswordField password;
 
-    private boolean isFirst=true;
-    static private Integer id = 1;
-    Map<Integer, User> all_users = new HashMap<>();
-    Login loginSystem = new Login(id, all_users,isFirst);
-
-    void setVariables( Map<Integer, User> allUsers, boolean is_first)
-    {
-        all_users = allUsers;
-        loginSystem = new Login(id, all_users,is_first);
-    }
+    Login loginSystem = new Login();
 
 
     @FXML protected void handleLogin(ActionEvent event) throws IOException {
 
-        String userName = username.getText();
+        String userEmail = email.getText();
         String passWD = password.getText();
 
-        LoginReturn loginResult = loginSystem.login(userName, passWD, actiontarget );
-
-        if( loginResult.isSuccessful)
+        String result = loginSystem.login(userEmail, passWD);
+        if( result != null)
         {
-            actiontarget.setText("Welcome, "
-                    + userName
-                    + "!\n" + "UserType: " + loginResult.type+"\n");
+            Connection conn = null;
+            actiontarget.setText(result);
+
 
             // If User has been authenticated, determine the type of user
             // (admin, professor, student, etc)
@@ -59,33 +42,43 @@ public class LoginController {
             // switch (userType) { .... (something like this)
 
 
-            // IF USER IS STUDENT
-            if(loginResult.type.equals("Submitter")) {
+            if(result == "Successful Login!"){
+                try{
+                    conn = DriverManager.getConnection("jdbc:mysql://localhost/softproj?useSSL=false",
+                            "root",
+                            "Meeral69");
 
-                Submitter submitter = (Submitter) loginResult.returnedUser;
-                System.out.println("LOGIN=>submitter: " + submitter.getUsername());
-                System.out.println("LOGIN=>submitter.getHasTeam: " + submitter.getHasTeam());
+                    String query = "SELECT * FROM user WHERE email = ? and role = ?";
 
-                if(submitter.getHasTeam()) {
-                    Parent studentRoot = FXMLLoader.load(getClass().getResource("StudentRoot.fxml"));
-                    Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    appStage.setScene(new Scene(studentRoot));
-                    appStage.show();
+
+                    // IF USER IS STUDENT
+
+                    // create the mysql insert prepared statement
+                    PreparedStatement preparedStmt = conn.prepareStatement(query);
+                    preparedStmt.setString (1, userEmail);
+                    preparedStmt.setString (2, "Student");
+
+                    // execute the prepared statement
+                    ResultSet resultSet = preparedStmt.executeQuery();
+                    if(resultSet.next()) {
+                        preparedStmt.close();
+                        Parent studentRoot = FXMLLoader.load (getClass().getResource("StudentRoot.fxml"));
+                        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        appStage.setScene(new Scene (studentRoot));
+                        appStage.show();
+                    }
+
+                }catch(SQLException ex){
+                    // handle any errors
+                    System.out.println("SQLException: " + ex.getMessage());
+                    System.out.println("SQLState: " + ex.getSQLState());
+                    System.out.println("VendorError: " + ex.getErrorCode());
                 }
-                else{
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CreateTeam.fxml"));
-                    Parent teamRoot = (Parent)fxmlLoader.load();
-                    Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    appStage.setScene(new Scene(teamRoot,800,600));
-                    CreateTeamController controller = fxmlLoader.<CreateTeamController>getController();
-                    controller.setVariables(submitter,all_users);
-                    appStage.show();
-                }
-            }
-            else if(loginResult.type.equals("Admin"))
-            {
 
             }
+        }
+        else{
+            actiontarget.setText("Login Failed Due to Connection Error!");
         }
     }
 

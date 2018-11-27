@@ -137,7 +137,7 @@ public class CreateTeamController {
         Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         appStage.setScene(new Scene(root, 800, 600));
         LoginController controller = fxmlLoader.<LoginController>getController();
-        controller.setVariables(allUsers,false);
+        //controller.setVariables(allUsers,false);
         appStage.show();
     }
 }

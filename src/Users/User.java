@@ -35,7 +35,7 @@ public class User {
         return userID;
     }
 
-    public String register(String username, String useremail, String password , String role){
+    public boolean register(String username, String useremail, String password , String role, StringBuilder errorMessage){
 
         Connection conn = null;
 
@@ -54,7 +54,8 @@ public class User {
             ResultSet resultSet = preparedStmt.executeQuery();
             if(resultSet.next()) {
                 preparedStmt.close();
-                return "User already exists!";
+                errorMessage.append( "User already exists!") ;
+                return false;
             }
 
             else{
@@ -72,7 +73,7 @@ public class User {
                     // execute the preparedstatement
                     preparedStmt.execute();
 
-                    return "User Registered Successfully!";
+                    return true;
 
                 }catch (SQLException ex) {
                     // handle any errors
@@ -80,7 +81,9 @@ public class User {
                     System.out.println("SQLState: " + ex.getSQLState());
                     System.out.println("VendorError: " + ex.getErrorCode());
                     preparedStmt.close();
-                    return "SQL Error: " + ex.getMessage() + "\n";
+                    errorMessage.append( "SQL Error: " + ex.getMessage() + "\n") ;
+                    //errorMessage = "SQL Error: " + ex.getMessage() + "\n";
+                    return false;
                 }
 
             }
@@ -90,7 +93,8 @@ public class User {
             System.out.println("SQLException: " + ex.getMessage());
             System.out.println("SQLState: " + ex.getSQLState());
             System.out.println("VendorError: " + ex.getErrorCode());
-            return "SQL Error: " + ex.getMessage() + "\n";
+            errorMessage.append("SQL Error: " + ex.getMessage() + "\n");
+            return false;
         }
     }
 
@@ -107,5 +111,3 @@ public class User {
         return false;
     }
 }
-
-

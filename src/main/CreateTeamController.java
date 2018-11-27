@@ -47,11 +47,15 @@ public class CreateTeamController {
     }
 
     @FXML
-    void initialize() {
+    void initialize() throws SQLException {
         assert teammatesListView != null : "fx:id=\" teammatesList\" was not injected: check your FXML file 'CreateTeam.fxml'.";
 
         teammatesListView.setItems(teammatesList);
         teammatesListView.setCellFactory(listView -> new TeammatesListViewCell());
+
+        Connection database = Database.createConnection();
+        refreshTeamateGUILists(database);
+        database.close();
     }
 
     @FXML protected void handleAddUser(ActionEvent event) throws IOException, SQLException {
@@ -76,10 +80,10 @@ public class CreateTeamController {
                 if (CurrentStaticUser.teamId == 0)
                 {
                     query = "INSERT INTO TEAM VALUES ()";
-                    Statement statement = database.createStatement();
-                    CurrentStaticUser.teamId = statement.executeUpdate (query, Statement.RETURN_GENERATED_KEYS);
+                    CurrentStaticUser.teamId = DatabaseUtil.insertAndGetGeneratedPrimaryKey (database, query);
 
                     // Update user to be in the team
+                    Statement statement = database.createStatement();
                     statement.execute("UPDATE User SET teamID = " + CurrentStaticUser.teamId + " WHERE userID = " + CurrentStaticUser.userId);
                 }
 

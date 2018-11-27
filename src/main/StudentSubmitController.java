@@ -79,18 +79,21 @@ public class StudentSubmitController {
         // If all Artifacts have been labeled with phase and type
         if (artifactsReady) {
             try {
-
-                // Submit these artifacts by adding their file paths, phase, and type to the database
                 Connection conn = Database.createConnection();
 
                 String query;
+
+                // Create a submission and get its unique id
+                query = "INSERT INTO Submission (teamID, submitterID, dateSubmitted) VALUES ("
+                        + CurrentStaticUser.teamId + ", " + CurrentStaticUser.userId + ", UTC_TIMESTAMP())";
+                int submissionID = DatabaseUtil.insertAndGetGeneratedPrimaryKey (conn, query);
 
                 for (ListArtifact artifact : artifactList) {
 
                     //System.out.println(artifact.file.getName() + " - " + artifact.file.getPath() + " - "
                     //                   + artifact.artifactPhase + " - " + artifact.artifactType);
 
-                    query = "INSERT INTO Artifact (name, phase, type, directory, submitterID, teamID) VALUES(?, ?, ?, ?, ?, ?)";
+                    query = "INSERT INTO Artifact (name, phase, type, directory, submissionID) VALUES(?, ?, ?, ?, ?)";
 
                     // create the mysql insert prepared statement
                     PreparedStatement preparedStmt = conn.prepareStatement(query);
@@ -98,8 +101,7 @@ public class StudentSubmitController {
                     preparedStmt.setString (2, artifact.artifactPhase);
                     preparedStmt.setString (3, artifact.artifactType);
                     preparedStmt.setString (4, artifact.file.getPath());
-                    preparedStmt.setInt (5, CurrentStaticUser.userId);
-                    preparedStmt.setInt (6, CurrentStaticUser.teamId);
+                    preparedStmt.setInt (5, submissionID);
 
                     // execute the prepared statement
                     preparedStmt.execute();

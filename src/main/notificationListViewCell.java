@@ -30,7 +30,7 @@ public class notificationListViewCell extends ListCell<notification>{
 
     VBox vbox = new VBox();
 
-    notificationListViewCell(int numButtons, String ControllerType, GrandPaController GodFather)
+    notificationListViewCell(int numButtons, GrandPaController GodFather)
     {
         super();
                 messageListView.setItems(messageList);
@@ -76,17 +76,17 @@ public class notificationListViewCell extends ListCell<notification>{
         actionButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
                 // ACTION
-                if(ControllerType.equals("ReviewerController"))
+                if(GodFather instanceof  ReviewerController)
                 {
                     ReviewerController reviewerController = (ReviewerController) GodFather;
 
                 }
-                else if(ControllerType.equals("RPMcontroller"))
+                else if(GodFather instanceof RPMcontroller)
                 {
                     RPMcontroller rpmController = (RPMcontroller) GodFather;
                     rpmController.BigTitle.setText("Action Button Pressed! Notification: "+getItem().Title);
                 }
-                else if(ControllerType.equals("LecturerController"))
+                else if(GodFather instanceof LecturerController)
                 {
                     LecturerController lecturerController = (LecturerController) GodFather;
                 }
@@ -96,17 +96,16 @@ public class notificationListViewCell extends ListCell<notification>{
         rejectButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
                 // ACTION
-                if(ControllerType.equals("ReviewerController"))
+                if(GodFather instanceof  ReviewerController)
                 {
                     ReviewerController reviewerController = (ReviewerController) GodFather;
-
                 }
-                else if(ControllerType.equals("RPMcontroller"))
+                else if(GodFather instanceof RPMcontroller)
                 {
                     RPMcontroller rpmController = (RPMcontroller) GodFather;
                     rpmController.BigTitle.setText("Reject Button Pressed! Notification: "+getItem().Title);
                 }
-                else if(ControllerType.equals("LecturerController"))
+                else if(GodFather instanceof LecturerController)
                 {
                     LecturerController lecturerController = (LecturerController) GodFather;
                 }

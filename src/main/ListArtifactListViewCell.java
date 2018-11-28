@@ -18,7 +18,7 @@ public class ListArtifactListViewCell extends ListCell<ListArtifact> {
     VBox vbox = new VBox();
 
 
-    ListArtifactListViewCell(int numButtons, String ControllerType, GrandPaController GodFather)
+    ListArtifactListViewCell(int numButtons, GrandPaController GodFather)
     {
         super();
 
@@ -44,16 +44,16 @@ public class ListArtifactListViewCell extends ListCell<ListArtifact> {
         reviewButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
                 // ACTION
-                if(ControllerType.equals("ReviewerController"))
+                if(GodFather instanceof  ReviewerController)
                 {
                     ReviewerController reviewerController = (ReviewerController) GodFather;
 
                 }
-                else if(ControllerType.equals("RPMcontroller"))
+                else if(GodFather instanceof RPMcontroller)
                 {
                     RPMcontroller rpmController = (RPMcontroller) GodFather;
                 }
-                else if(ControllerType.equals("LecturerController"))
+                else if(GodFather instanceof LecturerController)
                 {
                     LecturerController lecturerController = (LecturerController) GodFather;
                 }
@@ -63,16 +63,16 @@ public class ListArtifactListViewCell extends ListCell<ListArtifact> {
         seeButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
                 // ACTION
-                if(ControllerType.equals("ReviewerController"))
+                if(GodFather instanceof  ReviewerController)
                 {
                     ReviewerController reviewerController = (ReviewerController) GodFather;
 
                 }
-                else if(ControllerType.equals("RPMcontroller"))
+                else if(GodFather instanceof RPMcontroller)
                 {
                     RPMcontroller rpmController = (RPMcontroller) GodFather;
                 }
-                else if(ControllerType.equals("LecturerController"))
+                else if(GodFather instanceof LecturerController)
                 {
                     LecturerController lecturerController = (LecturerController) GodFather;
                 }

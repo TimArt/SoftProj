@@ -20,7 +20,7 @@ public class reviewerListViewCell extends ListCell<Reviewer>{
 
     HBox box = new HBox();
 
-    reviewerListViewCell(int numButtons,String ControllerType, GrandPaController GodFather)
+    reviewerListViewCell(int numButtons, GrandPaController GodFather)
     {
         super();
         box.setPrefWidth(width);
@@ -44,16 +44,16 @@ public class reviewerListViewCell extends ListCell<Reviewer>{
         assignButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
                 // ACTION
-                if(ControllerType.equals("ReviewerController"))
+                if(GodFather instanceof  ReviewerController)
                 {
                     ReviewerController reviewerController = (ReviewerController) GodFather;
 
                 }
-                else if(ControllerType.equals("RPMcontroller"))
+                else if(GodFather instanceof RPMcontroller)
                 {
                     RPMcontroller rpmController = (RPMcontroller) GodFather;
                 }
-                else if(ControllerType.equals("LecturerController"))
+                else if(GodFather instanceof LecturerController)
                 {
                     LecturerController lecturerController = (LecturerController) GodFather;
                 }

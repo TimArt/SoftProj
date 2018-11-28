@@ -24,10 +24,10 @@ public class ReviewerController extends GrandPaController{
     @FXML
     void initialize() {
         notificationListView.setItems(notificationList);
-        notificationListView.setCellFactory(listView -> new notificationListViewCell(2,"ReviewerController",this));
+        notificationListView.setCellFactory(listView -> new notificationListViewCell(2,this));
 
         assignedArtifactsListView.setItems(assignedArtifactsList);
-        assignedArtifactsListView.setCellFactory(listView -> new ListArtifactListViewCell(2,"ReviewerController",this));
+        assignedArtifactsListView.setCellFactory(listView -> new ListArtifactListViewCell(2,this));
     }
 
     @FXML

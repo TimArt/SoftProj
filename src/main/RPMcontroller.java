@@ -43,19 +43,19 @@ public class RPMcontroller extends GrandPaController{
         assert notificationListView != null : "fx:id=\"notificationList\" was not injected: check your FXML file 'CustomList.fxml'.";
 
         notificationListView.setItems(notificationList);
-        notificationListView.setCellFactory(listView -> new notificationListViewCell(2, "RPMcontroller",this));
+        notificationListView.setCellFactory(listView -> new notificationListViewCell(2,this));
 
         teamListView.setItems(teamList);
         teamListView.setCellFactory(listView -> new StringListViewCell());
 
         reviewedArtifactListView.setItems(reviewedArtifactList);
-        reviewedArtifactListView.setCellFactory(listView -> new ListArtifactListViewCell(1,"RPMcontroller",this));
+        reviewedArtifactListView.setCellFactory(listView -> new ListArtifactListViewCell(1,this));
 
         inProcessArtifactListView.setItems(inProcessArtifactList);
-        inProcessArtifactListView.setCellFactory(listView -> new ListArtifactListViewCell(2,"RPMcontroller",this));
+        inProcessArtifactListView.setCellFactory(listView -> new ListArtifactListViewCell(2,this));
 
         reviewersListView.setItems(reviewersList);
-        reviewersListView.setCellFactory(listView -> new reviewerListViewCell(1,"RPMcontroller",this));
+        reviewersListView.setCellFactory(listView -> new reviewerListViewCell(1,this));
 
     }
 

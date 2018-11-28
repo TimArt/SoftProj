@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57a6a996-ae29-4996-bf4c-d63162ac2982" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/GrandPaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/LecturerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/LecturerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/LecturerPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/LecturerPage.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/ListArtifactListViewCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ListArtifactListViewCell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/RPMcontroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/RPMcontroller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/RPMpage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/RPMpage.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/ReviewerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ReviewerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/notification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/notification.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/notificationListViewCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/notificationListViewCell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/reviewerListViewCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/reviewerListViewCell.java" afterDir="false" />
     </list>
@@ -24,11 +20,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="notification.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/notification.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reviewerListViewCell.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/reviewerListViewCell.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="45" column="16" selection-start-line="45" selection-start-column="16" selection-end-line="58" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="notificationListViewCell.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/notificationListViewCell.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="32" column="96" lean-forward="true" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="96" />
+            <state relative-caret-position="152">
+              <caret line="32" column="45" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -39,29 +56,8 @@
       <file leaf-file-name="ListArtifactListViewCell.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/ListArtifactListViewCell.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="20" column="96" lean-forward="true" selection-start-line="20" selection-start-column="96" selection-end-line="20" selection-end-column="96" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="notification.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/notification.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RPMcontroller.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/RPMcontroller.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="54" column="114" lean-forward="true" selection-start-line="54" selection-start-column="114" selection-end-line="54" selection-end-column="114" />
+            <state relative-caret-position="272">
+              <caret line="20" column="45" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -72,8 +68,8 @@
       <file leaf-file-name="LecturerController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/LecturerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="48" column="116" selection-start-line="48" selection-start-column="116" selection-end-line="48" selection-end-column="116" />
+            <state relative-caret-position="611">
+              <caret line="48" column="91" lean-forward="true" selection-start-line="48" selection-start-column="91" selection-end-line="48" selection-end-column="91" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -84,8 +80,8 @@
       <file leaf-file-name="ReviewerController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/ReviewerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="29" column="119" selection-start-line="29" selection-start-column="119" selection-end-line="29" selection-end-column="119" />
+            <state relative-caret-position="481">
+              <caret line="29" column="92" lean-forward="true" selection-start-line="29" selection-start-column="92" selection-end-line="29" selection-end-column="92" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -93,12 +89,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LecturerPage.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/LecturerPage.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
+      <file leaf-file-name="RPMcontroller.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/RPMcontroller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="51" column="59" selection-start-line="51" selection-start-column="59" selection-end-line="51" selection-end-column="59" />
+            <state relative-caret-position="458">
+              <caret line="56" column="50" lean-forward="true" selection-start-line="56" selection-start-column="50" selection-end-line="56" selection-end-column="50" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -133,11 +131,11 @@
         <option value="$PROJECT_DIR$/src/main/StringListViewCell.java" />
         <option value="$PROJECT_DIR$/src/main/ListArtifact.java" />
         <option value="$PROJECT_DIR$/src/main/RPMpage.fxml" />
-        <option value="$PROJECT_DIR$/src/main/notificationListViewCell.java" />
         <option value="$PROJECT_DIR$/src/main/notification.java" />
+        <option value="$PROJECT_DIR$/src/main/LecturerPage.fxml" />
         <option value="$PROJECT_DIR$/src/main/reviewerListViewCell.java" />
         <option value="$PROJECT_DIR$/src/main/ListArtifactListViewCell.java" />
-        <option value="$PROJECT_DIR$/src/main/LecturerPage.fxml" />
+        <option value="$PROJECT_DIR$/src/main/notificationListViewCell.java" />
         <option value="$PROJECT_DIR$/src/main/LecturerController.java" />
         <option value="$PROJECT_DIR$/src/main/ReviewerController.java" />
         <option value="$PROJECT_DIR$/src/main/RPMcontroller.java" />
@@ -315,7 +313,21 @@
       <option name="project" value="LOCAL" />
       <updated>1543381399763</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Update: Handle buttons inside ListCells of ListViews">
+      <created>1543436362526</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1543436362526</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Update with Example: Handle buttons inside ListCells of ListViews">
+      <created>1543436656037</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1543436656037</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -388,7 +400,9 @@
     <MESSAGE value="GUI update" />
     <MESSAGE value="GUI update2" />
     <MESSAGE value="GUI update3" />
-    <option name="LAST_COMMIT_MESSAGE" value="GUI update3" />
+    <MESSAGE value="Update: Handle buttons inside ListCells of ListViews" />
+    <MESSAGE value="Update with Example: Handle buttons inside ListCells of ListViews" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update with Example: Handle buttons inside ListCells of ListViews" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -621,16 +635,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/reviewerListViewCell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="58" column="17" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/StudentSubmitController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -661,16 +665,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/notificationListViewCell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="32" column="96" lean-forward="true" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="96" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/LecturerPage.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
@@ -679,10 +673,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/reviewerListViewCell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="45" column="16" selection-start-line="45" selection-start-column="16" selection-end-line="58" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/ListArtifactListViewCell.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="20" column="96" lean-forward="true" selection-start-line="20" selection-start-column="96" selection-end-line="20" selection-end-column="96" />
+        <state relative-caret-position="272">
+          <caret line="20" column="45" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/notificationListViewCell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="32" column="45" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -691,8 +705,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/LecturerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="48" column="116" selection-start-line="48" selection-start-column="116" selection-end-line="48" selection-end-column="116" />
+        <state relative-caret-position="611">
+          <caret line="48" column="91" lean-forward="true" selection-start-line="48" selection-start-column="91" selection-end-line="48" selection-end-column="91" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -701,8 +715,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/ReviewerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="119" selection-start-line="29" selection-start-column="119" selection-end-line="29" selection-end-column="119" />
+        <state relative-caret-position="481">
+          <caret line="29" column="92" lean-forward="true" selection-start-line="29" selection-start-column="92" selection-end-line="29" selection-end-column="92" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -711,8 +725,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/RPMcontroller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="54" column="114" lean-forward="true" selection-start-line="54" selection-start-column="114" selection-end-line="54" selection-end-column="114" />
+        <state relative-caret-position="458">
+          <caret line="56" column="50" lean-forward="true" selection-start-line="56" selection-start-column="50" selection-end-line="56" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

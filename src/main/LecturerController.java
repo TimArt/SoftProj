@@ -34,19 +34,19 @@ public class LecturerController extends GrandPaController {
     void initialize() {
 
         notificationListView.setItems(notificationList);
-        notificationListView.setCellFactory(listView -> new notificationListViewCell(2,"LecturerController", this));
+        notificationListView.setCellFactory(listView -> new notificationListViewCell(2,this));
 
         RPMListView.setItems(RPMList);
         RPMListView.setCellFactory(listView -> new StringListViewCell());
 
         ReviewerListView.setItems(ReviewerList);
-        ReviewerListView.setCellFactory(listView -> new reviewerListViewCell(0,"LecturerController",this));
+        ReviewerListView.setCellFactory(listView -> new reviewerListViewCell(0,this));
 
         teamsListView.setItems(teamList);
         teamsListView.setCellFactory(listView -> new StringListViewCell());
 
         pendingArtifactsListView.setItems(pendingArtifactsList);
-        pendingArtifactsListView.setCellFactory(listView -> new ListArtifactListViewCell(2,"LecturerController",this));
+        pendingArtifactsListView.setCellFactory(listView -> new ListArtifactListViewCell(2,this));
 
     }
 

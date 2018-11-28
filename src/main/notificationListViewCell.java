@@ -84,6 +84,7 @@ public class notificationListViewCell extends ListCell<notification>{
                 else if(ControllerType.equals("RPMcontroller"))
                 {
                     RPMcontroller rpmController = (RPMcontroller) GodFather;
+                    rpmController.BigTitle.setText("Action Button Pressed! Notification: "+getItem().Title);
                 }
                 else if(ControllerType.equals("LecturerController"))
                 {
@@ -103,6 +104,7 @@ public class notificationListViewCell extends ListCell<notification>{
                 else if(ControllerType.equals("RPMcontroller"))
                 {
                     RPMcontroller rpmController = (RPMcontroller) GodFather;
+                    rpmController.BigTitle.setText("Reject Button Pressed! Notification: "+getItem().Title);
                 }
                 else if(ControllerType.equals("LecturerController"))
                 {

@@ -42,7 +42,6 @@ public class AdminRootController {
         approvedUserListView.setItems(approvedUserList);
         approvedUserListView.setCellFactory(alistView -> new ApprovedUserListViewCell());
 
-
         // Setup Submission View
         submissionTreeView.setRoot(DatabaseUtil.getTreeViewRootOfArtifacts(false));
 

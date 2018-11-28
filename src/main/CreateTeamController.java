@@ -11,13 +11,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.DragEvent;
-import javafx.scene.input.Dragboard;
-import javafx.scene.input.TransferMode;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -49,7 +44,7 @@ public class CreateTeamController {
         assert teammatesListView != null : "fx:id=\" teammatesList\" was not injected: check your FXML file 'CreateTeam.fxml'.";
 
         teammatesListView.setItems(teammatesList);
-        teammatesListView.setCellFactory(listView -> new TeammatesListViewCell());
+        teammatesListView.setCellFactory(listView -> new StringListViewCell());
     }
 
     @FXML protected void handleAddUser(ActionEvent event) throws IOException

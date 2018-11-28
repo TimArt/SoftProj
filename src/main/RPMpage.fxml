@@ -11,12 +11,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.RPMmain">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.RPMcontroller">
 
     <top>
     <AnchorPane maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="80.0" prefWidth="800.0" style="-fx-background-color: gainsboro;">
         <children>
-            <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#handleLogOut" prefHeight="80.0" prefWidth="80.0" text="Log Out" textAlignment="CENTER" />
             <Label alignment="CENTER" prefHeight="80.0" prefWidth="800" text="RPM" textAlignment="CENTER">
                 <font>
                     <Font name="System Bold" size="24.0" />
@@ -25,6 +24,7 @@
                     <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
                 </BorderPane.margin>
             </Label>
+            <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#handleLogOut" prefHeight="80.0" prefWidth="80.0" text="Log Out" textAlignment="CENTER" />
         </children>
     </AnchorPane>
     </top>
@@ -38,7 +38,7 @@
                 </Label>
                  <Text fx:id="teamNumber" text="Team #" textAlignment="CENTER" wrappingWidth="150.0">
                  </Text>
-                <ListView prefHeight="520.0" prefWidth="150.0" />
+                <ListView fx:id="teamListView" prefHeight="520.0" prefWidth="150.0" />
              </children>
         </VBox>
     </right>
@@ -53,8 +53,12 @@
                            <children>
                               <VBox prefHeight="260.0" prefWidth="250.0">
                                   <children>
-                                      <Label alignment="CENTER" prefWidth="250.0" text="Reviewed Artifacts:" />
-                                      <ListView prefHeight="260.0" prefWidth="250.0" />
+                                      <Label alignment="CENTER" prefWidth="250.0" text="Reviewed Artifacts:">
+                                          <font>
+                                              <Font name="System Bold" size="14.0" />
+                                          </font>
+                                      </Label>
+                                      <ListView fx:id="reviewedArtifactListView" prefHeight="260.0" prefWidth="250.0" />
                                   </children>
                               </VBox>
                            </children></AnchorPane>
@@ -62,8 +66,12 @@
                            <children>
                               <VBox prefHeight="260.0" prefWidth="250.0">
                                   <children>
-                                      <Label alignment="CENTER" prefWidth="250.0" text="Artifacts in Process:" />
-                                      <ListView prefHeight="260.0" prefWidth="250.0" />
+                                      <Label alignment="CENTER" prefWidth="250.0" text="Artifacts in Process:" >
+                                          <font>
+                                              <Font name="System Bold" size="14.0" />
+                                          </font>
+                                      </Label>
+                                      <ListView fx:id="inProcessArtifactListView" prefHeight="260.0" prefWidth="250.0" />
                                   </children>
                               </VBox>
                            </children></AnchorPane>
@@ -74,8 +82,12 @@
                <children>
                   <VBox prefHeight="260.0" prefWidth="500.0">
                       <children>
-                          <Label alignment="CENTER" prefWidth="500.0" text="List Of Available Reviewers:" />
-                          <ListView prefHeight="260.0" prefWidth="500.0" />
+                          <Label alignment="CENTER" prefWidth="500.0" text="List Of Available Reviewers:" >
+                              <font>
+                                  <Font name="System Bold" size="14.0" />
+                              </font>
+                          </Label>
+                          <ListView fx:id="reviewersListView" prefHeight="260.0" prefWidth="500.0" />
                       </children>
                   </VBox>
                </children></AnchorPane>
@@ -83,14 +95,14 @@
       </SplitPane>
    </center>
    <left>
-      <VBox prefHeight="520.0" prefWidth="150.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="520.0" prefWidth="150.0" style="-fx-background-color: darkgray;" BorderPane.alignment="CENTER">
           <children>
               <Label alignment="CENTER" prefWidth="150.0" text="Notifications:">
                   <font>
                       <Font name="System Bold" size="14.0" />
                   </font>
               </Label>
-              <ListView prefHeight="520.0" prefWidth="150.0" />
+              <ListView fx:id="notificationListView" prefHeight="520.0" prefWidth="150.0" />
           </children>
       </VBox>
    </left>

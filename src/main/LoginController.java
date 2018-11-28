@@ -84,7 +84,13 @@ public class LoginController {
             }
             else if(loginResult.type.equals("Admin"))
             {
-
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("RPMpage.fxml"));
+                Parent root = (Parent)fxmlLoader.load();
+                Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                appStage.setScene(new Scene(root, 800, 600));
+                RPMcontroller controller = fxmlLoader.<RPMcontroller>getController();
+                controller.initializeNotifications();
+                appStage.show();
             }
         }
     }

@@ -1,6 +1,8 @@
 package main;
 
 import Others.Artifact;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +17,18 @@ import java.io.IOException;
 public class ReviewerController {
 
     @FXML private ListView<notification> notificationListView;
-    @FXML private ListView<Artifact> assignedArtifactsListView;
+    private ObservableList<notification> notificationList = FXCollections.observableArrayList();
+    @FXML private ListView<ListArtifact> assignedArtifactsListView;
+    private ObservableList<ListArtifact>  assignedArtifactsList = FXCollections.observableArrayList();
+
+    @FXML
+    void initialize() {
+        notificationListView.setItems(notificationList);
+        notificationListView.setCellFactory(listView -> new notificationListViewCell(2));
+
+        assignedArtifactsListView.setItems(assignedArtifactsList);
+        assignedArtifactsListView.setCellFactory(listView -> new ListArtifactListViewCell(2));
+    }
 
     @FXML
     protected void handleLogOut(ActionEvent event) throws IOException {

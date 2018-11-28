@@ -85,4 +85,15 @@ public class StudentRootController {
         appStage.setScene(new Scene(studentRoot));
         appStage.show();
     }
+
+    @FXML
+    protected void handleLogOut(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login.fxml"));
+        Parent root = (Parent)fxmlLoader.load();
+        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        appStage.setScene(new Scene(root, 800, 600));
+        LoginController controller = fxmlLoader.<LoginController>getController();
+        //controller.setVariables(allUsers,false);
+        appStage.show();
+    }
 }

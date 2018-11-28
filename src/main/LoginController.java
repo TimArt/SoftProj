@@ -47,46 +47,63 @@ public class LoginController {
                 try{
                     conn = DatabaseUtil.createConnection();
 
-                    String query = "SELECT * FROM User WHERE email = ? and role = ?";
+                    String query = "SELECT * FROM User WHERE email = ? ";
 
-
-                    // IF USER IS STUDENT
 
                     // create the mysql insert prepared statement
                     PreparedStatement preparedStmt = conn.prepareStatement(query);
                     preparedStmt.setString (1, userEmail);
-                    preparedStmt.setString (2, "Student");
 
                     // execute the prepared statement
                     ResultSet resultSet = preparedStmt.executeQuery();
-                    if(resultSet.next()) {
 
+                    String userRole = null;
+
+                    if(resultSet.next()){
+
+                        userRole = resultSet.getString("role");
                         CurrentStaticUser.userId = resultSet.getInt("userID");
                         CurrentStaticUser.username = resultSet.getString("name");
                         CurrentStaticUser.password = resultSet.getString("password");
                         CurrentStaticUser.teamId = resultSet.getInt("teamId");
 
                         preparedStmt.close();
-
-
-                        // Choose what view to show User
-                        Parent sceneRoot;
-                        if (CurrentStaticUser.teamId != 0)
-                        {
-                            // Go to Student Root since this user has a team
-                            sceneRoot = FXMLLoader.load (getClass().getResource("StudentRoot.fxml"));
-                        }
-                        else
-                        {
-                            // If the current submitter does not have a team, make them create one
-                            sceneRoot = FXMLLoader.load (getClass().getResource("CreateTeam.fxml"));
-                        }
-
-                        // Setup View
-                        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                        appStage.setScene(new Scene (sceneRoot));
-                        appStage.show();
                     }
+
+                    Parent sceneRoot = null;
+
+                    switch(userRole){
+                        case "Student":     // Choose what view to show Student
+                                            if (CurrentStaticUser.teamId != 0)
+                                            {
+                                                // Go to Student Root since this user has a team
+                                                sceneRoot = FXMLLoader.load (getClass().getResource("StudentRoot.fxml"));
+                                            }
+                                            else
+                                            {
+                                                // If the current submitter does not have a team, make them create one
+                                                sceneRoot = FXMLLoader.load (getClass().getResource("CreateTeam.fxml"));
+                                            }
+                                            break;
+
+                        case "Admin":       sceneRoot = FXMLLoader.load (getClass().getResource("AdminRoot.fxml"));
+                                            break;
+
+                        case "RPM":
+                                            break;
+
+                        case "Reviewer":
+                                            break;
+
+                        case "Lecturer":
+                                            break;
+                    }
+
+
+                    // Setup View
+                    Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    appStage.setScene(new Scene (sceneRoot));
+                    appStage.show();
 
                 }catch(SQLException ex){
                     // handle any errors

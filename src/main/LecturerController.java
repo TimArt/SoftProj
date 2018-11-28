@@ -3,6 +3,8 @@ package main;
 import Others.Team;
 import Users.RPM;
 import Users.Reviewer;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,9 +19,30 @@ import java.io.IOException;
 public class LecturerController {
 
     @FXML private ListView<notification> notificationListView;
-    @FXML private ListView<RPM> RPMListView;
+    private ObservableList<notification> notificationList = FXCollections.observableArrayList();
+    @FXML private ListView<String> RPMListView;
+    private ObservableList<String> RPMList = FXCollections.observableArrayList();
     @FXML private ListView<Reviewer> ReviewerListView;
-    @FXML private ListView<Team> teamsListView;
+    private ObservableList<Reviewer> ReviewerList = FXCollections.observableArrayList();
+    @FXML private ListView<String> teamsListView;
+    private ObservableList<String> teamList = FXCollections.observableArrayList();
+
+    @FXML
+    void initialize() {
+
+        notificationListView.setItems(notificationList);
+        notificationListView.setCellFactory(listView -> new notificationListViewCell(2));
+
+        RPMListView.setItems(RPMList);
+        RPMListView.setCellFactory(listView -> new StringListViewCell());
+
+        ReviewerListView.setItems(ReviewerList);
+        ReviewerListView.setCellFactory(listView -> new reviewerListViewCell(0));
+
+        teamsListView.setItems(teamList);
+        teamsListView.setCellFactory(listView -> new StringListViewCell());
+
+    }
 
 
 

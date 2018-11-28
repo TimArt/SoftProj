@@ -29,6 +29,7 @@ public class LoginController {
         String userEmail = email.getText();
         String passWD = password.getText();
 
+
         StringBuilder errorMessage = new StringBuilder();
         //String result = loginSystem.login(userEmail, passWD);
 
@@ -37,25 +38,13 @@ public class LoginController {
             Connection conn = null;
             actiontarget.setText(errorMessage.toString());
 
-
-            // If User has been authenticated, determine the type of user
-            // (admin, professor, student, etc)
-
-            // Based on the type of user, go to the appropriate page
-            // switch (userType) { .... (something like this)
-
-
             try{
                 conn = DatabaseUtil.createConnection();
 
                 String query = "SELECT * FROM User WHERE email = ? ";
-
-
-                // create the mysql insert prepared statement
                 PreparedStatement preparedStmt = conn.prepareStatement(query);
                 preparedStmt.setString (1, userEmail);
 
-                // execute the prepared statement
                 ResultSet resultSet = preparedStmt.executeQuery();
 
                 String userRole = null;

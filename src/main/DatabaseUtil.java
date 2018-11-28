@@ -1,6 +1,7 @@
 package main;
 
 import Users.CurrentStaticUser;
+import Users.User;
 import javafx.scene.control.TreeItem;
 
 import java.sql.*;
@@ -11,7 +12,7 @@ public class DatabaseUtil {
     public static Connection createConnection() throws SQLException {
         return DriverManager.getConnection("jdbc:mysql://localhost/softproj?useSSL=false",
                 "root",
-                "PUT YO PASSWORD HERE");
+                "Meeral69");
     }
 
     public static int insertAndGetGeneratedPrimaryKey (Connection database, String query) throws SQLException {
@@ -70,6 +71,7 @@ public class DatabaseUtil {
         return treeViewRoot;
     }
 
+    /*
     public static ArrayList<String> getApprovedUsers() throws SQLException {
         Connection database = DatabaseUtil.createConnection();
         String query = "SELECT * FROM User WHERE isApproved = TRUE";
@@ -82,19 +84,34 @@ public class DatabaseUtil {
             users.add(results.getString("name"));
         }
         return users;
+    }*/
+
+    public static ArrayList<User> getApprovedUsers() throws SQLException {
+        Connection database = DatabaseUtil.createConnection();
+        String query = "SELECT * FROM User WHERE isApproved = TRUE";
+        Statement statement = database.createStatement();
+        statement.execute(query);
+        ResultSet results = statement.getResultSet();
+        ArrayList<User> users = new ArrayList<>();
+        while (results.next())
+        {
+            users.add(new User(results.getString("name")));
+        }
+        return users;
     }
 
-    public static ArrayList<String> getUnapprovedUsers() throws SQLException {
+    public static ArrayList<User> getUnapprovedUsers() throws SQLException {
         Connection database = DatabaseUtil.createConnection();
         String query = "SELECT * FROM User WHERE isApproved = FALSE";
         Statement statement = database.createStatement();
         statement.execute(query);
         ResultSet results = statement.getResultSet();
-        ArrayList<String> users = new ArrayList<>();
+        ArrayList<User> users = new ArrayList<>();
         while (results.next())
         {
-            users.add(results.getString("name"));
+            users.add(new User(results.getString("name")));
         }
         return users;
     }
 }
+

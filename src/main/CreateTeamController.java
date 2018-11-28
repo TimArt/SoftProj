@@ -133,6 +133,7 @@ public class CreateTeamController {
 
     }
 
+    /*
     @FXML protected void handleCreateTeam(ActionEvent event) throws IOException {
 
         Team newTeam = new Team();
@@ -161,7 +162,7 @@ public class CreateTeamController {
         }
 
         target.setText("Team was created!");
-    }
+    }*/
 
     @FXML protected void handleLogOut(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login.fxml"));

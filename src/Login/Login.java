@@ -6,7 +6,7 @@ import java.sql.*;
 
 public class Login {
 
-    public Boolean login(String email, String password, StringBuilder errorMessage)
+    public boolean login(String email, String password, StringBuilder errorMessage)
     {
         boolean user_exists = false;
         boolean password_correct = false;
@@ -73,7 +73,7 @@ public class Login {
             System.out.println("SQLState: " + ex.getSQLState());
             System.out.println("VendorError: " + ex.getErrorCode());
 
-            return null;
+            return false;
         }
     }
 }

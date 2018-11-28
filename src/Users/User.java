@@ -9,14 +9,23 @@ import java.sql.SQLException;
 
 public class User {
 
-    private String username;
-    private int userID;
-    private char[] passwordHash;
+    public int userID;
+    public String username;
+    public String password;
+    public int teamId;
+    public String role;
+    public String email;
 
-    public User()
-    {
+    public User(){
 
     }
+
+    public User(String name){
+        username = name;
+    }
+
+    private char[] passwordHash;
+
 
     public User(String username, int userID)
     {

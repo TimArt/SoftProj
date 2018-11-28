@@ -8,6 +8,12 @@ public class CurrentStaticUser {
     public static String role;
     public static String email;
 
+    public CurrentStaticUser(){
+
+    }
+    public CurrentStaticUser(String name){
+        username = name;
+    }
     /*
   userID INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
   name varchar(45) NOT NULL,

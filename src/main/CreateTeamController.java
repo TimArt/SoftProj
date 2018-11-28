@@ -53,7 +53,7 @@ public class CreateTeamController {
         teammatesListView.setItems(teammatesList);
         teammatesListView.setCellFactory(listView -> new TeammatesListViewCell());
 
-        Connection database = Database.createConnection();
+        Connection database = DatabaseUtil.createConnection();
         refreshTeamateGUILists(database);
         database.close();
     }
@@ -61,7 +61,7 @@ public class CreateTeamController {
     @FXML protected void handleAddUser(ActionEvent event) throws IOException, SQLException {
         String teammate_userName = teammate_username.getText();
 
-        Connection database = Database.createConnection();
+        Connection database = DatabaseUtil.createConnection();
 
         // Get information about the teammate
         String query = "SELECT * FROM User WHERE name = ?";

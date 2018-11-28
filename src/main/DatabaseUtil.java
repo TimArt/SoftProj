@@ -2,12 +2,15 @@ package main;
 
 import Users.CurrentStaticUser;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class DatabaseUtil {
+
+    public static Connection createConnection() throws SQLException {
+        return DriverManager.getConnection("jdbc:mysql://localhost/softproj?useSSL=false",
+                "root",
+                "Meeral69");
+    }
 
     public static int insertAndGetGeneratedPrimaryKey (Connection database, String query) throws SQLException {
 

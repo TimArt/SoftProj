@@ -1,7 +1,14 @@
 package Users;
 
 import Login.Login;
-import Login.LoginReturn;
+import main.DatabaseUtil;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import static Users.CurrentStaticUser.email;
 
 public class Admin extends User {
 
@@ -19,13 +26,104 @@ public class Admin extends User {
         return false;
     }
 
-    public void removeUser(int id)
-    {
+    /*
+    *
+    * This Function removes an existing user
+    * Takes User E-mail as parameter
+    * Returns TRUE if user exists and removed
+    * Otherwise returns FALSE if user does not exist in Database
+    *
+    */
+    public boolean removeUser(String email) throws SQLException {
+
+        Connection conn = DatabaseUtil.createConnection();
+        String query = "SELECT * FROM USER WHERE email ="+ email;
+        Statement statement = conn.createStatement();
+        ResultSet userFoundFromDB = statement.executeQuery(query);
+
+        if(userFoundFromDB.next()){
+            query = "DELETE FROM USER WHERE email ="+ email;
+            statement = conn.createStatement();
+            statement.execute(query);
+            return true;
+        }
+        else
+            return false;
+    }
+
+    /*
+     *
+     * This Function approves an existing user
+     * Takes User E-mail as parameter
+     * Returns TRUE if user exists and approved
+     * Otherwise returns FALSE if user does not exist in Database
+     *
+     */
+    public boolean approveUser(String email) throws SQLException {
+
+        Connection conn = DatabaseUtil.createConnection();
+        String query = "SELECT * FROM USER WHERE email ="+ email;
+        Statement statement = conn.createStatement();
+        ResultSet userFoundFromDB = statement.executeQuery(query);
+
+        if(userFoundFromDB.next()){
+            query = "UPDATE User SET isApproved = 1 WHERE email ="+ email;
+            statement = conn.createStatement();
+            statement.execute(query);
+            return true;
+        }
+        else
+            return false;
+    }
+
+    /*
+     *
+     * This Function approves an existing user
+     * Takes User ID as parameter
+     * Returns TRUE if user exists and approved
+     * Otherwise returns FALSE if user does not exist in Database
+     *
+     */
+    public boolean approveUser(int userID) throws SQLException {
+
+        Connection conn = DatabaseUtil.createConnection();
+        String query = "SELECT * FROM USER WHERE userID ="+ userID;
+        Statement statement = conn.createStatement();
+        ResultSet userFoundFromDB = statement.executeQuery(query);
+
+        if(userFoundFromDB.next()){
+            query = "UPDATE User SET isApproved = 1 WHERE userID ="+ userID;
+            statement = conn.createStatement();
+            statement.execute(query);
+            return true;
+        }
+        else
+            return false;
 
     }
 
-    public void removeUser(String username)
-    {
+    /*
+     *
+     * This Function removes an existing user
+     * Takes User ID as parameter
+     * Returns TRUE if user exists and removed
+     * Otherwise returns FALSE if user does not exist in Database
+     *
+     */
+    public boolean removeUser(int userID) throws SQLException {
+        Connection conn = DatabaseUtil.createConnection();
+        String query = "SELECT * FROM USER WHERE userID ="+ userID;
+        Statement statement = conn.createStatement();
+        ResultSet userFoundFromDB = statement.executeQuery(query);
+
+        if(userFoundFromDB.next()){
+            query = "DELETE FROM USER WHERE userID ="+ userID;
+            statement = conn.createStatement();
+            statement.execute(query);
+            return true;
+        }
+        else
+            return false;
 
     }
 

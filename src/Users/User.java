@@ -1,8 +1,11 @@
 package Users;
 
-import main.Database;
+import main.DatabaseUtil;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class User {
 
@@ -42,7 +45,7 @@ public class User {
         Connection conn = null;
 
         try {
-            conn = Database.createConnection();
+            conn = DatabaseUtil.createConnection();
 
             String query = "SELECT * FROM User WHERE email =?";
 

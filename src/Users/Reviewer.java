@@ -2,7 +2,7 @@ package Users;
 
 import Others.Artifact;
 import Reviews.ArtifactReview;
-import main.Database;
+import main.DatabaseUtil;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -19,27 +19,29 @@ public class Reviewer extends User {
         return dummy;
     }
 
-    public ArrayList<User> showListOfReviewers() throws SQLException {
-        Connection conn = Database.createConnection();
+
+    public ArrayList<CurrentStaticUser> showListOfReviewers() throws SQLException {
+        Connection conn = DatabaseUtil.createConnection();
         ArrayList<CurrentStaticUser> reviewers = new ArrayList<>();
 
         String query = "SELECT * FROM USER WHERE role = Reviewer" ;
         Statement statement = conn.createStatement();
         ResultSet resultset = statement.executeQuery(query);
 
-        CurrentStaticUser temp = new CurrentStaticUser();
+        CurrentStaticUser tempUser = new CurrentStaticUser();
         while(resultset.next()){
-            temp.userId = resultset.getInt("userID");
-            temp.username = resultset.getString("username");
-            temp.password = resultset.getString("password");
-            temp.teamId = resultset.getInt("teamId");
-            temp.role  = resultset.getString("role");
-            temp.email = resultset.getString("email");
-            reviewers.add(temp);
+            tempUser.userId = resultset.getInt("userID");
+            tempUser.username = resultset.getString("username");
+            tempUser.password = resultset.getString("password");
+            tempUser.teamId = resultset.getInt("teamId");
+            tempUser.role  = resultset.getString("role");
+            tempUser.email = resultset.getString("email");
+            reviewers.add(tempUser);
         }
 
         return reviewers;
     }
+
 
     public Reviewer(String username, int userID) {
         super(username,userID);

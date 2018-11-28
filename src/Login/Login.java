@@ -1,6 +1,6 @@
 package Login;
 
-import main.Database;
+import main.DatabaseUtil;
 
 import java.sql.*;
 
@@ -14,7 +14,7 @@ public class Login {
         Connection conn = null;
 
         try{
-            conn = Database.createConnection();
+            conn = DatabaseUtil.createConnection();
 
             String query = "SELECT * FROM User WHERE email =?";
 

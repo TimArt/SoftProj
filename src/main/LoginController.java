@@ -45,7 +45,7 @@ public class LoginController {
 
             if(result == "Successful Login!"){
                 try{
-                    conn = Database.createConnection();
+                    conn = DatabaseUtil.createConnection();
 
                     String query = "SELECT * FROM User WHERE email = ? and role = ?";
 
@@ -94,7 +94,6 @@ public class LoginController {
                     System.out.println("SQLState: " + ex.getSQLState());
                     System.out.println("VendorError: " + ex.getErrorCode());
                 }
-
             }
         }
         else{

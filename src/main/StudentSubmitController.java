@@ -80,7 +80,7 @@ public class StudentSubmitController {
         // If all Artifacts have been labeled with phase and type
         if (artifactsReady) {
             try {
-                Connection conn = Database.createConnection();
+                Connection conn = DatabaseUtil.createConnection();
 
                 String query;
 

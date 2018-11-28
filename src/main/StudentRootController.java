@@ -32,7 +32,7 @@ public class StudentRootController {
     void initialize() throws SQLException {
 
         // Get Submissions
-        Connection database = Database.createConnection();
+        Connection database = DatabaseUtil.createConnection();
         String submissionQuery = "SELECT * FROM Submission WHERE teamId = " + CurrentStaticUser.teamId;
         Statement submissionStatement = database.createStatement();
         submissionStatement.execute(submissionQuery);

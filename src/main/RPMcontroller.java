@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.List;
 
 public class RPMcontroller {
 
@@ -24,7 +25,7 @@ public class RPMcontroller {
     private ObservableList<String> teamList = FXCollections.observableArrayList();
     @FXML
     private ListView<ListArtifact> reviewedArtifactListView;
-    private ObservableList<ListArtifact> reviewedArtifactList;
+    private ObservableList<ListArtifact> reviewedArtifactList = FXCollections.observableArrayList();;
     @FXML
     private ListView<ListArtifact> inProcessArtifactListView;
     private ObservableList<ListArtifact> inProcessArtifactList = FXCollections.observableArrayList();;
@@ -76,6 +77,16 @@ public class RPMcontroller {
         Reviewer ab = new Reviewer("Abdik",1);
         ab.setUsername("ABDIK");
         reviewersList.add(ab);
+
+        ListArtifact a1 = new ListArtifact();
+        ListArtifact a2 = new ListArtifact();
+        a1.name = "The Best Artifact!";
+        a2.name = "Boo! The Worst Artifact!";
+
+        inProcessArtifactList.add(a1);
+        inProcessArtifactList.add(a2);
+        reviewedArtifactList.add(a1);
+        reviewedArtifactList.add(a2);
 
     }
 

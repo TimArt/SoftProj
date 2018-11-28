@@ -20,6 +20,7 @@ public class notificationListViewCell extends ListCell<notification>{
     Label title = new Label("(empty)");
     ListView<Label> messageListView = new ListView<>();
     ObservableList<Label> messageList = FXCollections.observableArrayList();
+
     Label message = new Label();
 
     private Button rejectButton = new Button("Reject");
@@ -33,6 +34,15 @@ public class notificationListViewCell extends ListCell<notification>{
     notificationListViewCell(int numButtons)
     {
         super();
+
+        messageListView.setItems(messageList);
+
+        vbox.setStyle("-fx-padding: 2;" +
+                "-fx-border-style: solid inside;" +
+                "-fx-border-width: 2;" +
+                "-fx-border-insets: 2;" +
+                "-fx-border-radius: 2;" +
+                "-fx-border-color: black;");
 
         vbox.setPrefWidth(vbox_child_width);
         title.setMaxWidth(vbox_child_width);
@@ -48,12 +58,6 @@ public class notificationListViewCell extends ListCell<notification>{
 
         messageList.add(message);
 
-        vbox.setStyle("-fx-padding: 2;" +
-                "-fx-border-style: solid inside;" +
-                "-fx-border-width: 2;" +
-                "-fx-border-insets: 2;" +
-                "-fx-border-radius: 2;" +
-                "-fx-border-color: black;");
 
         if(numButtons == 1)
         {
@@ -65,9 +69,11 @@ public class notificationListViewCell extends ListCell<notification>{
         }
         vbox.setPadding(new Insets(0));
         vbox.getChildren().addAll(title, messageListView,buttons);
+
         vbox.setMargin(title, new Insets(0));
         vbox.setMargin(messageListView, new Insets(0));
         vbox.setMargin(buttons, new Insets(0));
+
 
         actionButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
@@ -94,7 +100,7 @@ public class notificationListViewCell extends ListCell<notification>{
             //setText(item.toString());
             title.setText(item.Title != null ? item.Title : "<null>");
             messageList.clear();
-            message.setText(item.Message != null ? item.Message : "<null>");
+            message.setText(item.Message!= null ? item.Message : "<null>");
             messageList.add(message);
             setGraphic(vbox);
         }

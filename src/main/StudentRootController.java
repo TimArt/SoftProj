@@ -30,44 +30,7 @@ public class StudentRootController {
 
     @FXML
     void initialize() throws SQLException {
-
-        // Get Submissions
-        Connection database = DatabaseUtil.createConnection();
-        String submissionQuery = "SELECT * FROM Submission WHERE teamId = " + CurrentStaticUser.teamId;
-        Statement submissionStatement = database.createStatement();
-        submissionStatement.execute(submissionQuery);
-        ResultSet submissions = submissionStatement.getResultSet();
-        ArrayList<TreeItem> submissionItems = new ArrayList<>();
-
-        while (submissions.next())
-        {
-            // Setup Submission Root Item
-            StringBuilder sb = new StringBuilder();
-            sb.append(submissions.getInt("submissionID"));
-            TreeItem submissionRoot = new TreeItem("Submission ID: " + sb.toString());
-
-            // Get Artifacts
-            String artifactQuery = "SELECT * FROM Artifact WHERE submissionId = " + submissions.getInt("submissionID");
-            Statement artifactStatement = database.createStatement();
-            artifactStatement.execute(artifactQuery);
-            ResultSet artifacts = artifactStatement.getResultSet();
-
-            // Collect artifacts
-            ArrayList<TreeItem> artifactItems = new ArrayList<>();
-            while (artifacts.next())
-            {
-                artifactItems.add(new TreeItem (artifacts.getString("name")));
-            }
-
-            submissionRoot.getChildren().addAll(artifactItems);
-
-            submissionItems.add(submissionRoot);
-        }
-
-        TreeItem treeViewRoot = new TreeItem();
-        treeViewRoot.getChildren().addAll(submissionItems);
-        treeViewRoot.setExpanded(true);
-        submissionTreeView.setRoot(treeViewRoot);
+        submissionTreeView.setRoot(DatabaseUtil.getTreeViewRootOfArtifacts(true));
     }
 
     @FXML

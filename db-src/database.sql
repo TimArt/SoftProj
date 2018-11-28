@@ -23,7 +23,7 @@ CREATE TABLE `User` (
   name varchar(45) NOT NULL,
   password varchar(45) NOT NULL,
   role varchar(45) NOT NULL,
-  isApproved tinyint(1) DEFAULT '0',
+  isApproved BOOLEAN NOT NULL DEFAULT FALSE,
   email varchar(50) UNIQUE NOT NULL,
   teamID INT UNSIGNED DEFAULT NULL,
   

@@ -1,9 +1,10 @@
-package main;
+package main.guiComponents;
 
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
+import main.ListArtifact;
 
 public class ArtifactListViewCell extends ListCell<ListArtifact>
 {

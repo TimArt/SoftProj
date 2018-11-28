@@ -15,7 +15,7 @@
          <children>
             <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleMakeSubmission" text="Make Submission" />
             <Button mnemonicParsing="false" onAction="#handleAddTeammates" text="Add Members to Team" />
-            <TreeView prefHeight="200.0" prefWidth="200.0" fx:id="submissionTreeView" />
+            <TreeView fx:id="submissionTreeView" prefHeight="200.0" prefWidth="200.0" />
          </children>
       </VBox>
    </center>

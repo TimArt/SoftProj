@@ -87,12 +87,10 @@ public class StudentSubmitController {
                 // Create a submission and get its unique id
                 query = "INSERT INTO Submission (teamID, submitterID, dateSubmitted) VALUES ("
                         + CurrentStaticUser.teamId + ", " + CurrentStaticUser.userId + ", UTC_TIMESTAMP())";
+
                 int submissionID = DatabaseUtil.insertAndGetGeneratedPrimaryKey (conn, query);
 
                 for (ListArtifact artifact : artifactList) {
-
-                    //System.out.println(artifact.file.getName() + " - " + artifact.file.getPath() + " - "
-                    //                   + artifact.artifactPhase + " - " + artifact.artifactType);
 
                     query = "INSERT INTO Artifact (name, phase, type, directory, submissionID) VALUES(?, ?, ?, ?, ?)";
 

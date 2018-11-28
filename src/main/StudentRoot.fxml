@@ -13,7 +13,6 @@
     <top>
         <AnchorPane maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="80.0" prefWidth="800.0" style="-fx-background-color: gainsboro;">
             <children>
-                <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#handleLogOut" prefHeight="80.0" prefWidth="80.0" text="Log Out" textAlignment="CENTER" />
                 <Label alignment="CENTER" prefHeight="80.0" prefWidth="800" text="Student" textAlignment="CENTER">
                     <font>
                         <Font name="System Bold" size="24.0" />
@@ -22,6 +21,7 @@
                         <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
                     </BorderPane.margin>
                 </Label>
+                <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#handleLogOut" prefHeight="80.0" prefWidth="80.0" text="Log Out" textAlignment="CENTER" />
             </children>
         </AnchorPane>
     </top>

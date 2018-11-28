@@ -29,11 +29,13 @@ public class LoginController {
         String userEmail = email.getText();
         String passWD = password.getText();
 
-        String result = loginSystem.login(userEmail, passWD);
-        if( result != null)
+        StringBuilder errorMessage = new StringBuilder();
+        //String result = loginSystem.login(userEmail, passWD);
+
+        if (loginSystem.login(userEmail, passWD, errorMessage))
         {
             Connection conn = null;
-            actiontarget.setText(result);
+            actiontarget.setText(errorMessage.toString());
 
 
             // If User has been authenticated, determine the type of user
@@ -43,78 +45,75 @@ public class LoginController {
             // switch (userType) { .... (something like this)
 
 
-            if(result == "Successful Login!"){
-                try{
-                    conn = DatabaseUtil.createConnection();
+            try{
+                conn = DatabaseUtil.createConnection();
 
-                    String query = "SELECT * FROM User WHERE email = ? ";
-
-
-                    // create the mysql insert prepared statement
-                    PreparedStatement preparedStmt = conn.prepareStatement(query);
-                    preparedStmt.setString (1, userEmail);
-
-                    // execute the prepared statement
-                    ResultSet resultSet = preparedStmt.executeQuery();
-
-                    String userRole = null;
-
-                    if(resultSet.next()){
-
-                        userRole = resultSet.getString("role");
-                        CurrentStaticUser.userId = resultSet.getInt("userID");
-                        CurrentStaticUser.username = resultSet.getString("name");
-                        CurrentStaticUser.password = resultSet.getString("password");
-                        CurrentStaticUser.teamId = resultSet.getInt("teamId");
-
-                        preparedStmt.close();
-                    }
-
-                    Parent sceneRoot = null;
-
-                    switch(userRole){
-                        case "Student":     // Choose what view to show Student
-                                            if (CurrentStaticUser.teamId != 0)
-                                            {
-                                                // Go to Student Root since this user has a team
-                                                sceneRoot = FXMLLoader.load (getClass().getResource("StudentRoot.fxml"));
-                                            }
-                                            else
-                                            {
-                                                // If the current submitter does not have a team, make them create one
-                                                sceneRoot = FXMLLoader.load (getClass().getResource("CreateTeam.fxml"));
-                                            }
-                                            break;
-
-                        case "Admin":       sceneRoot = FXMLLoader.load (getClass().getResource("AdminRoot.fxml"));
-                                            break;
-
-                        case "RPM":
-                                            break;
-
-                        case "Reviewer":
-                                            break;
-
-                        case "Lecturer":
-                                            break;
-                    }
+                String query = "SELECT * FROM User WHERE email = ? ";
 
 
-                    // Setup View
-                    Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    appStage.setScene(new Scene (sceneRoot));
-                    appStage.show();
+                // create the mysql insert prepared statement
+                PreparedStatement preparedStmt = conn.prepareStatement(query);
+                preparedStmt.setString (1, userEmail);
 
-                }catch(SQLException ex){
-                    // handle any errors
-                    System.out.println("SQLException: " + ex.getMessage());
-                    System.out.println("SQLState: " + ex.getSQLState());
-                    System.out.println("VendorError: " + ex.getErrorCode());
+                // execute the prepared statement
+                ResultSet resultSet = preparedStmt.executeQuery();
+
+                String userRole = null;
+
+                if(resultSet.next()){
+
+                    userRole = resultSet.getString("role");
+                    CurrentStaticUser.userId = resultSet.getInt("userID");
+                    CurrentStaticUser.username = resultSet.getString("name");
+                    CurrentStaticUser.password = resultSet.getString("password");
+                    CurrentStaticUser.teamId = resultSet.getInt("teamId");
+
+                    preparedStmt.close();
                 }
+
+                Parent sceneRoot = null;
+
+                switch(userRole){
+                    case "Student":     // Choose what view to show Student
+                                        if (CurrentStaticUser.teamId != 0)
+                                        {
+                                            // Go to Student Root since this user has a team
+                                            sceneRoot = FXMLLoader.load (getClass().getResource("StudentRoot.fxml"));
+                                        }
+                                        else
+                                        {
+                                            // If the current submitter does not have a team, make them create one
+                                            sceneRoot = FXMLLoader.load (getClass().getResource("CreateTeam.fxml"));
+                                        }
+                                        break;
+
+                    case "Admin":       sceneRoot = FXMLLoader.load (getClass().getResource("AdminRoot.fxml"));
+                                        break;
+
+                    case "RPM":
+                                        break;
+
+                    case "Reviewer":
+                                        break;
+
+                    case "Lecturer":
+                                        break;
+                }
+
+                // Setup View
+                Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                appStage.setScene(new Scene (sceneRoot));
+                appStage.show();
+
+            }catch(SQLException ex){
+                // handle any errors
+                System.out.println("SQLException: " + ex.getMessage());
+                System.out.println("SQLState: " + ex.getSQLState());
+                System.out.println("VendorError: " + ex.getErrorCode());
             }
         }
         else{
-            actiontarget.setText("Login Failed Due to Connection Error!");
+            actiontarget.setText(errorMessage.toString());
         }
     }
 

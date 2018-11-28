@@ -6,7 +6,7 @@ import java.sql.*;
 
 public class Login {
 
-    public String login(String email, String password)
+    public Boolean login(String email, String password, StringBuilder errorMessage)
     {
         boolean user_exists = false;
         boolean password_correct = false;
@@ -48,20 +48,23 @@ public class Login {
                 {
                     // DO THE ACTION
                     preparedStmt.close();
-                    return "Successful Login!";
+                    errorMessage.append( "Successful Login!") ;
+                    return true;
                 }
                 else
                 {
                     //System.out.println("Password is not correct!");
                     preparedStmt.close();
-                    return "Password is not correct!";
+                    errorMessage.append( "Password is not correct!") ;
+                    return false;
                 }
             }
             else
             {
                 //System.out.println("No user with this username!");
                 preparedStmt.close();
-                return "No user exists with this email!";
+                errorMessage.append( "No user exists with this email!") ;
+                return false;
             }
 
         }catch(SQLException ex){

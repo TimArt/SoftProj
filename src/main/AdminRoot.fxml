@@ -55,7 +55,7 @@
                                         <children>
                                             <Label alignment="CENTER" prefWidth="250.0" text="Unapproved Users: " />
                                             <ScrollPane prefHeight="491.0" prefWidth="250.0">
-                                                <ListView prefHeight="260.0" prefWidth="250.0" />
+                                                <ListView fx:id="unapprovedUserListView" prefHeight="260.0" prefWidth="250.0" />
                                             </ScrollPane>
                                         </children>
                                     </VBox>
@@ -67,7 +67,7 @@
                                         <children>
                                             <Label alignment="CENTER" prefWidth="250.0" text="Approved Users: " />
                                             <ScrollPane prefHeight="491.0" prefWidth="250.0">
-                                                <ListView prefHeight="260.0" prefWidth="250.0" />
+                                                <ListView fx:id="approvedUserListView" prefHeight="260.0" prefWidth="250.0" />
                                             </ScrollPane>
                                         </children>
                                     </VBox>

@@ -17,15 +17,6 @@ public class Admin extends User {
         super(username, userID);
     }
 
-    // Admin creates User object with username and password
-    // and informs the User about his/her username and password.
-    // User will need to change the password after his/her first login.
-    public boolean addUser(String username, String password, String usertype, Login loginSystem)
-    {
-        //return loginSystem.addUser(username,password, usertype);
-        return false;
-    }
-
     /*
     *
     * This Function removes an existing user

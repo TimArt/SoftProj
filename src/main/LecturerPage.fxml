@@ -49,7 +49,7 @@
                           <Font name="System Bold" size="14.0" />
                       </font>
                   </Label>
-                  <ListView fx:id="teamsListView" prefHeight="520.0" prefWidth="216.66" />
+                  <ListView fx:id="pendingArtifactsListView" prefHeight="520.0" prefWidth="216.66" />
                </children></VBox>
              <VBox prefHeight="520.0" prefWidth="216.66" style="-fx-background-color: darkgray;">
                  <children>
@@ -79,7 +79,7 @@
                                    <Font name="System Bold" size="14.0" />
                                </font>
                            </Label>
-                           <ListView fx:id="RPMListView" prefHeight="520.0" prefWidth="216.66" />
+                           <ListView fx:id="teamsListView" prefHeight="520.0" prefWidth="216.66" />
                        </children>
                    </VBox>
                </children>

@@ -18,7 +18,7 @@ public class ListArtifactListViewCell extends ListCell<ListArtifact> {
     VBox vbox = new VBox();
 
 
-    ListArtifactListViewCell(int numButtons)
+    ListArtifactListViewCell(int numButtons, String ControllerType, GrandPaController GodFather)
     {
         super();
 
@@ -44,12 +44,38 @@ public class ListArtifactListViewCell extends ListCell<ListArtifact> {
         reviewButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
                 // ACTION
+                if(ControllerType.equals("ReviewerController"))
+                {
+                    ReviewerController reviewerController = (ReviewerController) GodFather;
+
+                }
+                else if(ControllerType.equals("RPMcontroller"))
+                {
+                    RPMcontroller rpmController = (RPMcontroller) GodFather;
+                }
+                else if(ControllerType.equals("LecturerController"))
+                {
+                    LecturerController lecturerController = (LecturerController) GodFather;
+                }
             }
         });
 
         seeButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
                 // ACTION
+                if(ControllerType.equals("ReviewerController"))
+                {
+                    ReviewerController reviewerController = (ReviewerController) GodFather;
+
+                }
+                else if(ControllerType.equals("RPMcontroller"))
+                {
+                    RPMcontroller rpmController = (RPMcontroller) GodFather;
+                }
+                else if(ControllerType.equals("LecturerController"))
+                {
+                    LecturerController lecturerController = (LecturerController) GodFather;
+                }
             }
         });
 

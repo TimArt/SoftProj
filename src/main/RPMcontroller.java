@@ -5,17 +5,20 @@ import Users.Reviewer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
 
-public class RPMcontroller {
+public class RPMcontroller extends GrandPaController{
 
     @FXML
     private ListView<notification> notificationListView;
@@ -33,26 +36,26 @@ public class RPMcontroller {
     private ListView<Reviewer> reviewersListView;
     private ObservableList<Reviewer> reviewersList = FXCollections.observableArrayList();
 
+    @FXML public Label BigTitle;
 
     @FXML
     void initialize() {
         assert notificationListView != null : "fx:id=\"notificationList\" was not injected: check your FXML file 'CustomList.fxml'.";
 
         notificationListView.setItems(notificationList);
-        notificationListView.setCellFactory(listView -> new notificationListViewCell(2));
+        notificationListView.setCellFactory(listView -> new notificationListViewCell(2, "RPMcontroller",this));
 
         teamListView.setItems(teamList);
         teamListView.setCellFactory(listView -> new StringListViewCell());
 
         reviewedArtifactListView.setItems(reviewedArtifactList);
-        reviewedArtifactListView.setCellFactory(listView -> new ListArtifactListViewCell(1));
+        reviewedArtifactListView.setCellFactory(listView -> new ListArtifactListViewCell(1,"RPMcontroller",this));
 
         inProcessArtifactListView.setItems(inProcessArtifactList);
-        inProcessArtifactListView.setCellFactory(listView -> new ListArtifactListViewCell(2));
+        inProcessArtifactListView.setCellFactory(listView -> new ListArtifactListViewCell(2,"RPMcontroller",this));
 
         reviewersListView.setItems(reviewersList);
-        reviewersListView.setCellFactory(listView -> new reviewerListViewCell(1));
-
+        reviewersListView.setCellFactory(listView -> new reviewerListViewCell(1,"RPMcontroller",this));
 
     }
 

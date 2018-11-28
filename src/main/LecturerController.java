@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class LecturerController {
+public class LecturerController extends GrandPaController {
 
     @FXML private ListView<notification> notificationListView;
     private ObservableList<notification> notificationList = FXCollections.observableArrayList();
@@ -26,21 +26,27 @@ public class LecturerController {
     private ObservableList<Reviewer> ReviewerList = FXCollections.observableArrayList();
     @FXML private ListView<String> teamsListView;
     private ObservableList<String> teamList = FXCollections.observableArrayList();
+    @FXML private ListView<ListArtifact> pendingArtifactsListView;
+    private ObservableList<ListArtifact> pendingArtifactsList = FXCollections.observableArrayList();
+
 
     @FXML
     void initialize() {
 
         notificationListView.setItems(notificationList);
-        notificationListView.setCellFactory(listView -> new notificationListViewCell(2));
+        notificationListView.setCellFactory(listView -> new notificationListViewCell(2,"LecturerController", this));
 
         RPMListView.setItems(RPMList);
         RPMListView.setCellFactory(listView -> new StringListViewCell());
 
         ReviewerListView.setItems(ReviewerList);
-        ReviewerListView.setCellFactory(listView -> new reviewerListViewCell(0));
+        ReviewerListView.setCellFactory(listView -> new reviewerListViewCell(0,"LecturerController",this));
 
         teamsListView.setItems(teamList);
         teamsListView.setCellFactory(listView -> new StringListViewCell());
+
+        pendingArtifactsListView.setItems(pendingArtifactsList);
+        pendingArtifactsListView.setCellFactory(listView -> new ListArtifactListViewCell(2,"LecturerController",this));
 
     }
 

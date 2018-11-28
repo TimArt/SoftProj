@@ -28,14 +28,12 @@ public class notificationListViewCell extends ListCell<notification>{
 
     SplitPane buttons = new SplitPane();
 
-
     VBox vbox = new VBox();
 
-    notificationListViewCell(int numButtons)
+    notificationListViewCell(int numButtons, String ControllerType, GrandPaController GodFather)
     {
         super();
-
-        messageListView.setItems(messageList);
+                messageListView.setItems(messageList);
 
         vbox.setStyle("-fx-padding: 2;" +
                 "-fx-border-style: solid inside;" +
@@ -78,12 +76,38 @@ public class notificationListViewCell extends ListCell<notification>{
         actionButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
                 // ACTION
+                if(ControllerType.equals("ReviewerController"))
+                {
+                    ReviewerController reviewerController = (ReviewerController) GodFather;
+
+                }
+                else if(ControllerType.equals("RPMcontroller"))
+                {
+                    RPMcontroller rpmController = (RPMcontroller) GodFather;
+                }
+                else if(ControllerType.equals("LecturerController"))
+                {
+                    LecturerController lecturerController = (LecturerController) GodFather;
+                }
             }
         });
 
         rejectButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
                 // ACTION
+                if(ControllerType.equals("ReviewerController"))
+                {
+                    ReviewerController reviewerController = (ReviewerController) GodFather;
+
+                }
+                else if(ControllerType.equals("RPMcontroller"))
+                {
+                    RPMcontroller rpmController = (RPMcontroller) GodFather;
+                }
+                else if(ControllerType.equals("LecturerController"))
+                {
+                    LecturerController lecturerController = (LecturerController) GodFather;
+                }
             }
         });
 

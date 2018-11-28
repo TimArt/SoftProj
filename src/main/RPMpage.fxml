@@ -16,7 +16,7 @@
     <top>
     <AnchorPane maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="80.0" prefWidth="800.0" style="-fx-background-color: gainsboro;">
         <children>
-            <Label alignment="CENTER" prefHeight="80.0" prefWidth="800" text="RPM" textAlignment="CENTER">
+            <Label alignment="CENTER" prefHeight="80.0" prefWidth="800" text="RPM" textAlignment="CENTER" fx:id="BigTitle">
                 <font>
                     <Font name="System Bold" size="24.0" />
                 </font>

@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ReviewerController {
+public class ReviewerController extends GrandPaController{
 
     @FXML private ListView<notification> notificationListView;
     private ObservableList<notification> notificationList = FXCollections.observableArrayList();
@@ -24,10 +24,10 @@ public class ReviewerController {
     @FXML
     void initialize() {
         notificationListView.setItems(notificationList);
-        notificationListView.setCellFactory(listView -> new notificationListViewCell(2));
+        notificationListView.setCellFactory(listView -> new notificationListViewCell(2,"ReviewerController",this));
 
         assignedArtifactsListView.setItems(assignedArtifactsList);
-        assignedArtifactsListView.setCellFactory(listView -> new ListArtifactListViewCell(2));
+        assignedArtifactsListView.setCellFactory(listView -> new ListArtifactListViewCell(2,"ReviewerController",this));
     }
 
     @FXML

@@ -29,7 +29,6 @@ public class ApprovedUserListViewCell extends ListCell<User>
         userLabel.setMaxWidth(70.0);
         userLabel.setMinWidth(70.0);
 
-
         /*approveButon.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {

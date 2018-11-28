@@ -58,7 +58,7 @@ public class Admin extends User {
         ResultSet userFoundFromDB = statement.executeQuery(query);
 
         if(userFoundFromDB.next()){
-            query = "UPDATE User SET isApproved = 1 WHERE email ="+ email;
+            query = "UPDATE User SET isApproved = TRUE WHERE email ="+ email;
             statement = conn.createStatement();
             statement.execute(query);
             return true;
@@ -83,7 +83,7 @@ public class Admin extends User {
         ResultSet userFoundFromDB = statement.executeQuery(query);
 
         if(userFoundFromDB.next()){
-            query = "UPDATE User SET isApproved = 1 WHERE userID ="+ userID;
+            query = "UPDATE User SET isApproved = TRUE WHERE userID ="+ userID;
             statement = conn.createStatement();
             statement.execute(query);
             return true;

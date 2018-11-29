@@ -156,13 +156,13 @@ public class DatabaseUtil {
 
         if(userFoundFromDB.next()){
             query = "delete from  `User` where `email` = ?";
-            System.out.println(email + " got deleted");
             preparedStmt = conn.prepareStatement(query);
             preparedStmt.setString(1, email);
 
             // execute the preparedstatement
             preparedStmt.execute();
             preparedStmt.close();
+            System.out.println(email + " got deleted");
             return true;
         }
         else

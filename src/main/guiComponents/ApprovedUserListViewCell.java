@@ -28,8 +28,6 @@ public class ApprovedUserListViewCell extends ListCell<User>
     HBox hbox = new HBox();
     Pane pane = new Pane();
 
-    AdminRootController admin = new AdminRootController();
-
 
     public ApprovedUserListViewCell() {
 
@@ -44,25 +42,15 @@ public class ApprovedUserListViewCell extends ListCell<User>
         deleteButton.setMaxWidth(75.0);
         hbox.setSpacing(5.0);
 
-
-
-
         deleteButton.setOnMouseClicked(event -> {
             String email = userLabel.getText().substring(userLabel.getText().lastIndexOf(">") + 1);
-            userLabel.setText(email);
+            //userLabel.setText(email);
             try {
                 DatabaseUtil.removeUser(email);
-
-
-                admin.approvedUserList.addAll(DatabaseUtil.getApprovedUsers());
-                admin.approvedUserListView.setItems(admin.approvedUserList);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         });
-
-        //System.out.println(approvedUser.getSelectionModel().getSelectedItem()); // null in every case
-        //System.out.println( this.getListView().getSelectionModel().getSelectedItem() != null? this.getListView().getSelectionModel().getSelectedItem().username : null);
     }
 
     @Override
@@ -78,7 +66,4 @@ public class ApprovedUserListViewCell extends ListCell<User>
         }
         setText(null);
     }
-
-
-
 }

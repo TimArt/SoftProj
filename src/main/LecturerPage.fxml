@@ -4,13 +4,15 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TreeView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.LecturerController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.LecturerController">
     <top>
         <AnchorPane maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="80.0" prefWidth="800.0" style="-fx-background-color: gainsboro;">
             <children>
@@ -44,21 +46,26 @@
          <children>
             <VBox prefHeight="520.0" prefWidth="216.66" style="-fx-background-color: gray;">
                <children>
-                  <Label alignment="CENTER" prefWidth="216.66" text="Pending Artifacts:">
+                  <Label alignment="CENTER" prefWidth="216.66" text="All Submissions">
                       <font>
                           <Font name="System Bold" size="14.0" />
                       </font>
                   </Label>
-                  <ListView fx:id="pendingArtifactsListView" prefHeight="520.0" prefWidth="216.66" />
-               </children></VBox>
+                   <ScrollPane prefHeight="520.0" prefWidth="216.0">
+                       <content>
+                           <TreeView fx:id="submissionTreeView" prefHeight="519.0" prefWidth="215.0" />
+                       </content>
+                   </ScrollPane>
+               </children>
+            </VBox>
              <VBox prefHeight="520.0" prefWidth="216.66" style="-fx-background-color: darkgray;">
                  <children>
-                     <Label alignment="CENTER" prefWidth="216.66" text="REVIEWERS:">
+                     <Label alignment="CENTER" prefWidth="216.66" text="Reviewers:">
                          <font>
                              <Font name="System Bold" size="14.0" />
                          </font>
                      </Label>
-                     <ListView fx:id="ReviewerListView" prefHeight="520.0" prefWidth="216.66" />
+                     <ListView fx:id="reviewerListView" prefHeight="520.0" prefWidth="216.66" />
                  </children></VBox>
             <VBox prefHeight="520.0" prefWidth="216.66">
                <children>

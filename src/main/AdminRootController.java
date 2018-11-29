@@ -43,8 +43,6 @@ public class AdminRootController {
         approvedUserListView.setCellFactory(alistView -> new ApprovedUserListViewCell());
 
 
-
-
         // Setup Submission View
         submissionTreeView.setRoot(DatabaseUtil.getTreeViewRootOfArtifacts(false));
 

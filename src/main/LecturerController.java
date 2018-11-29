@@ -3,6 +3,7 @@ package main;
 import Others.Team;
 import Users.RPM;
 import Users.Reviewer;
+import Users.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -12,28 +13,41 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TreeView;
 import javafx.stage.Stage;
+import main.guiComponents.ReviewerListViewCell;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class LecturerController extends GrandPaController {
 
+    @FXML private TreeView<String> submissionTreeView;
+
     @FXML private ListView<notification> notificationListView;
     private ObservableList<notification> notificationList = FXCollections.observableArrayList();
+
     @FXML private ListView<String> RPMListView;
     private ObservableList<String> RPMList = FXCollections.observableArrayList();
-    @FXML private ListView<Reviewer> ReviewerListView;
-    private ObservableList<Reviewer> ReviewerList = FXCollections.observableArrayList();
+
+    @FXML private ListView<User> reviewerListView;
+    private ObservableList<User> reviewerList = FXCollections.observableArrayList();
+
     @FXML private ListView<String> teamsListView;
     private ObservableList<String> teamList = FXCollections.observableArrayList();
+
     @FXML private ListView<ListArtifact> pendingArtifactsListView;
     private ObservableList<ListArtifact> pendingArtifactsList = FXCollections.observableArrayList();
 
 
     @FXML
-    void initialize() {
+    void initialize() throws SQLException {
 
-        notificationListView.setItems(notificationList);
+        reviewerList.addAll (DatabaseUtil.getReviewers());
+        reviewerListView.setItems(reviewerList);
+        reviewerListView.setCellFactory(listView -> new ReviewerListViewCell());
+
+        /*notificationListView.setItems(notificationList);
         notificationListView.setCellFactory(listView -> new notificationListViewCell(2,this));
 
         RPMListView.setItems(RPMList);
@@ -46,10 +60,11 @@ public class LecturerController extends GrandPaController {
         teamsListView.setCellFactory(listView -> new StringListViewCell());
 
         pendingArtifactsListView.setItems(pendingArtifactsList);
-        pendingArtifactsListView.setCellFactory(listView -> new ListArtifactListViewCell(2,this));
+        pendingArtifactsListView.setCellFactory(listView -> new ListArtifactListViewCell(2,this));*/
+
+        submissionTreeView.setRoot(DatabaseUtil.getTreeViewRootOfArtifacts(false));
 
     }
-
 
 
     @FXML

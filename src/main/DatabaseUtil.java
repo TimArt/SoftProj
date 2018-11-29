@@ -114,12 +114,25 @@ public class DatabaseUtil {
         return users;
     }
 
+    public static ArrayList<User> getReviewers() throws SQLException {
+        Connection database = DatabaseUtil.createConnection();
+        String query = "SELECT * FROM `User` WHERE `role` = ?";
+        PreparedStatement preparedStmt = database.prepareStatement(query);
+        preparedStmt.setString(1, "Reviewer");
+        ResultSet rs = preparedStmt.executeQuery();
+
+        ArrayList<User> users = new ArrayList<>();
+        while (rs.next())
+        {
+            users.add(new User(rs.getString("name"),rs.getString("email")));
+        }
+        preparedStmt.close();
+        return users;
+    }
+
+
     /**
-     * This is a bad idea cuz there could be multiple users could have same username.
-     * (Could approve multiple people)
-     * We should do this by ID or by email, but in interest of time, I'm gonna do this,
-     * YEET
-     * Pluz hardcore sql injection going on here wow cuz no prepared statement
+     *
      * @param useremail
      * @throws SQLException
      */

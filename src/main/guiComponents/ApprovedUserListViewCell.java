@@ -2,6 +2,8 @@ package main.guiComponents;
 
 import Users.Admin;
 import Users.User;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
@@ -45,21 +47,28 @@ public class ApprovedUserListViewCell extends ListCell<User>
         hbox.setSpacing(5.0);
 
 
-
-
-        deleteButton.setOnMouseClicked(event -> {
-            String email = userLabel.getText().substring(userLabel.getText().lastIndexOf(">") + 1);
-            userLabel.setText(email);
-            try {
-                DatabaseUtil.removeUser(email);
-
-
-                admin.approvedUserList.addAll(DatabaseUtil.getApprovedUsers());
-                admin.approvedUserListView.setItems(admin.approvedUserList);
-            } catch (SQLException e) {
-                e.printStackTrace();
+        deleteButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                String email = userLabel.getText().substring(userLabel.getText().lastIndexOf(">") + 1);
+                try {
+                    DatabaseUtil.removeUser(email);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
         });
+
+
+//        deleteButton.setOnMouseClicked(event -> {
+//            String email = userLabel.getText().substring(userLabel.getText().lastIndexOf(">") + 1);
+//            userLabel.setText(email);
+//            try {
+//                DatabaseUtil.removeUser(email);
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
+//        });
 
         //System.out.println(approvedUser.getSelectionModel().getSelectedItem()); // null in every case
         //System.out.println( this.getListView().getSelectionModel().getSelectedItem() != null? this.getListView().getSelectionModel().getSelectedItem().username : null);

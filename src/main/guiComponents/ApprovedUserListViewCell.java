@@ -28,6 +28,8 @@ public class ApprovedUserListViewCell extends ListCell<User>
     HBox hbox = new HBox();
     Pane pane = new Pane();
 
+    AdminRootController admin = new AdminRootController();
+
 
     public ApprovedUserListViewCell() {
 
@@ -66,4 +68,7 @@ public class ApprovedUserListViewCell extends ListCell<User>
         }
         setText(null);
     }
+
+
+
 }

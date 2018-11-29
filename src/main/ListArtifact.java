@@ -3,10 +3,13 @@ package main;
 import java.io.File;
 
 public class ListArtifact {
+    public int id;
     public File file;
+    public String name;
     public String artifactPhase = null;
     public String artifactType = null;
 
+    ListArtifact (){}
     ListArtifact (File file)
     {
         this.file = file;

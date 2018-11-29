@@ -2,12 +2,17 @@ package main.guiComponents;
 
 import Users.CurrentStaticUser;
 import Users.User;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
+import main.DatabaseUtil;
+
+import javax.xml.crypto.Data;
 
 public class UnapprovedUserListViewCell extends ListCell<User>
 {
@@ -31,12 +36,12 @@ public class UnapprovedUserListViewCell extends ListCell<User>
         pane.setMaxWidth(200.0);
         pane.setMinWidth(200.0);
 
-        /*approveButon.setOnAction(new EventHandler<ActionEvent>() {
+        approveButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                System.out.println(" : " + event);
+                DatabaseUtil.approveUser(userLabel.getText());
             }
-        });*/
+        });
 
     }
 

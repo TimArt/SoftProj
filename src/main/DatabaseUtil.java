@@ -12,7 +12,7 @@ public class DatabaseUtil {
     public static Connection createConnection() throws SQLException {
         return DriverManager.getConnection("jdbc:mysql://localhost/softproj?useSSL=false",
                 "root",
-                "Meeral69");
+                "0.1onLimiter");
     }
 
     public static int insertAndGetGeneratedPrimaryKey (Connection database, String query) throws SQLException {
@@ -112,6 +112,51 @@ public class DatabaseUtil {
             users.add(new User(results.getString("name")));
         }
         return users;
+    }
+
+    /**
+     * This is a bad idea cuz there could be multiple users could have same username.
+     * (Could approve multiple people)
+     * We should do this by ID or by email, but in interest of time, I'm gonna do this,
+     * YEET
+     * Pluz hardcore sql injection going on here wow cuz no prepared statement
+     * @param username
+     * @throws SQLException
+     */
+    public static boolean approveUser (String username) {
+
+        Connection database = null;
+        boolean result = false;
+
+        try {
+            database = DatabaseUtil.createConnection();
+            String query = "UPDATE `User` SET isApproved = true WHERE name = '" + username + "'";
+            Statement statement = database.createStatement();
+            statement.execute(query);
+            database.close();
+            result = true;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return result;
+    }
+
+    public static boolean deleteUser (String username) {
+
+        Connection database = null;
+        boolean result = false;
+
+        try {
+            database = DatabaseUtil.createConnection();
+            String query = "DELETE FROM `User` WHERE name = '" + username + "'";
+            Statement statement = database.createStatement();
+            statement.execute(query);
+            database.close();
+        } catch (SQLException e) {
+        }
+
+        return result;
     }
 }
 

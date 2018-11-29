@@ -1,5 +1,6 @@
 package main;
 
+import Users.CurrentStaticUser;
 import Users.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,7 +19,7 @@ import main.guiComponents.UnapprovedUserListViewCell;
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class AdminRootController{
+public class AdminRootController {
 
     @FXML private TreeView<String> submissionTreeView;
 
@@ -33,17 +34,20 @@ public class AdminRootController{
     void initialize() throws SQLException {
 
         // Setup User View
-        unapprovedUserList.addAll(DatabaseUtil.getUnapprovedUsers());
+        unapprovedUserList.addAll (DatabaseUtil.getUnapprovedUsers());
         unapprovedUserListView.setItems(unapprovedUserList);
         unapprovedUserListView.setCellFactory(listView -> new UnapprovedUserListViewCell());
 
-        approvedUserList.addAll(DatabaseUtil.getApprovedUsers());
+        approvedUserList.addAll (DatabaseUtil.getApprovedUsers());
         approvedUserListView.setItems(approvedUserList);
-        approvedUserListView.setCellFactory(listView -> new ApprovedUserListViewCell());
+        approvedUserListView.setCellFactory(alistView -> new ApprovedUserListViewCell());
+
+
 
 
         // Setup Submission View
         submissionTreeView.setRoot(DatabaseUtil.getTreeViewRootOfArtifacts(false));
+
     }
 
     @FXML protected void handleLogOut(ActionEvent event) throws IOException {

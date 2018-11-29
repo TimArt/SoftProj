@@ -62,31 +62,30 @@ public class LoginController {
 
                 Parent sceneRoot = null;
 
+                // Change view depending on User Role
                 switch(userRole){
-                    case "Student":     // Choose what view to show Student
-                                        if (CurrentStaticUser.teamId != 0)
-                                        {
-                                            // Go to Student Root since this user has a team
-                                            sceneRoot = FXMLLoader.load (getClass().getResource("StudentRoot.fxml"));
-                                        }
-                                        else
-                                        {
-                                            // If the current submitter does not have a team, make them create one
-                                            sceneRoot = FXMLLoader.load (getClass().getResource("CreateTeam.fxml"));
-                                        }
-                                        break;
+                    case "Student":
+                        if (CurrentStaticUser.teamId != 0)  // Student Root if Student has a team
+                            sceneRoot = FXMLLoader.load (getClass().getResource("StudentRoot.fxml"));
+                        else // Team creation if Student has no team
+                            sceneRoot = FXMLLoader.load (getClass().getResource("CreateTeam.fxml"));
+                        break;
 
-                    case "Admin":       sceneRoot = FXMLLoader.load (getClass().getResource("AdminRoot.fxml"));
-                                        break;
+                    case "Admin":
+                        sceneRoot = FXMLLoader.load (getClass().getResource("AdminRoot.fxml"));
+                        break;
 
                     case "RPM":
-                                        break;
+                        sceneRoot = FXMLLoader.load (getClass().getResource("RPMpage.fxml"));
+                        break;
 
                     case "Reviewer":
-                                        break;
+                        sceneRoot = FXMLLoader.load (getClass().getResource("ReviewerPage.fxml"));
+                        break;
 
                     case "Lecturer":
-                                        break;
+                        sceneRoot = FXMLLoader.load (getClass().getResource("LecturerPage.fxml"));
+                        break;
                 }
 
                 // Setup View

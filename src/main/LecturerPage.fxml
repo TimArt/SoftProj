@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.LecturerController">
+    <top>
+        <AnchorPane maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="80.0" prefWidth="800.0" style="-fx-background-color: gainsboro;">
+            <children>
+                <Label alignment="CENTER" prefHeight="80.0" prefWidth="800" text="Lecturer" textAlignment="CENTER">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                    <BorderPane.margin>
+                        <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                    </BorderPane.margin>
+                </Label>
+                <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#handleLogOut" prefHeight="80.0" prefWidth="80.0" text="Log Out" textAlignment="CENTER" />
+            </children>
+        </AnchorPane>
+    </top>
+
+    <left>
+        <VBox prefHeight="520.0" prefWidth="150.0" style="-fx-background-color: darkgray;" BorderPane.alignment="CENTER">
+            <children>
+                <Label alignment="CENTER" prefWidth="150.0" text="Notifications:">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <ListView fx:id="notificationListView" prefHeight="520.0" prefWidth="150.0" />
+            </children>
+        </VBox>
+    </left>
+   <center>
+      <HBox prefHeight="520.0" prefWidth="650.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="520.0" prefWidth="216.66" style="-fx-background-color: gray;">
+               <children>
+                  <Label alignment="CENTER" prefWidth="216.66" text="Pending Artifacts:">
+                      <font>
+                          <Font name="System Bold" size="14.0" />
+                      </font>
+                  </Label>
+                  <ListView fx:id="pendingArtifactsListView" prefHeight="520.0" prefWidth="216.66" />
+               </children></VBox>
+             <VBox prefHeight="520.0" prefWidth="216.66" style="-fx-background-color: darkgray;">
+                 <children>
+                     <Label alignment="CENTER" prefWidth="216.66" text="REVIEWERS:">
+                         <font>
+                             <Font name="System Bold" size="14.0" />
+                         </font>
+                     </Label>
+                     <ListView fx:id="ReviewerListView" prefHeight="520.0" prefWidth="216.66" />
+                 </children></VBox>
+            <VBox prefHeight="520.0" prefWidth="216.66">
+               <children>
+                   <VBox prefHeight="260.0" prefWidth="216.66" style="-fx-background-color: grey;">
+                       <children>
+                           <Label alignment="CENTER" prefWidth="216.66" text="RPMs:">
+                               <font>
+                                   <Font name="System Bold" size="14.0" />
+                               </font>
+                           </Label>
+                           <ListView fx:id="RPMListView" prefHeight="520.0" prefWidth="216.66" />
+                       </children>
+                  </VBox>
+                   <VBox prefHeight="260.0" prefWidth="216.66" style="-fx-background-color: grey;">
+                       <children>
+                           <Label alignment="CENTER" prefWidth="216.66" text="Teams:">
+                               <font>
+                                   <Font name="System Bold" size="14.0" />
+                               </font>
+                           </Label>
+                           <ListView fx:id="teamsListView" prefHeight="520.0" prefWidth="216.66" />
+                       </children>
+                   </VBox>
+               </children>
+            </VBox>
+         </children></HBox>
+   </center>
+
+</BorderPane>

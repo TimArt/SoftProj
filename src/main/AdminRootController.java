@@ -1,6 +1,5 @@
 package main;
 
-import Users.CurrentStaticUser;
 import Users.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -19,32 +18,32 @@ import main.guiComponents.UnapprovedUserListViewCell;
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class AdminRootController {
+public class AdminRootController{
 
     @FXML private TreeView<String> submissionTreeView;
 
     @FXML private ListView<User> unapprovedUserListView;
     private ObservableList<User> unapprovedUserList = FXCollections.observableArrayList();
 
-    @FXML private ListView<User> approvedUserListView;
-    private ObservableList<User> approvedUserList = FXCollections.observableArrayList();
+    @FXML public  ListView<User> approvedUserListView;
+    public ObservableList<User> approvedUserList = FXCollections.observableArrayList();
 
 
     @FXML
     void initialize() throws SQLException {
 
         // Setup User View
-        unapprovedUserList.addAll (DatabaseUtil.getUnapprovedUsers());
+        unapprovedUserList.addAll(DatabaseUtil.getUnapprovedUsers());
         unapprovedUserListView.setItems(unapprovedUserList);
         unapprovedUserListView.setCellFactory(listView -> new UnapprovedUserListViewCell());
 
-        approvedUserList.addAll (DatabaseUtil.getApprovedUsers());
+        approvedUserList.addAll(DatabaseUtil.getApprovedUsers());
         approvedUserListView.setItems(approvedUserList);
-        approvedUserListView.setCellFactory(alistView -> new ApprovedUserListViewCell());
+        approvedUserListView.setCellFactory(listView -> new ApprovedUserListViewCell());
+
 
         // Setup Submission View
         submissionTreeView.setRoot(DatabaseUtil.getTreeViewRootOfArtifacts(false));
-
     }
 
     @FXML protected void handleLogOut(ActionEvent event) throws IOException {

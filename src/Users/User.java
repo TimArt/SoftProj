@@ -20,8 +20,9 @@ public class User {
 
     }
 
-    public User(String name){
+    public User(String name, String useremail){
         username = name;
+        email = useremail;
     }
 
     private char[] passwordHash;

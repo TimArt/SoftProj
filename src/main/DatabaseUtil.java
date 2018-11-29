@@ -95,7 +95,7 @@ public class DatabaseUtil {
         ArrayList<User> users = new ArrayList<>();
         while (results.next())
         {
-            users.add(new User(results.getString("name")));
+            users.add(new User(results.getString("name"),results.getString("email")));
         }
         return users;
     }
@@ -109,9 +109,64 @@ public class DatabaseUtil {
         ArrayList<User> users = new ArrayList<>();
         while (results.next())
         {
-            users.add(new User(results.getString("name")));
+            users.add(new User(results.getString("name"),results.getString("email")));
         }
         return users;
+    }
+
+    /**
+     * This is a bad idea cuz there could be multiple users could have same username.
+     * (Could approve multiple people)
+     * We should do this by ID or by email, but in interest of time, I'm gonna do this,
+     * YEET
+     * Pluz hardcore sql injection going on here wow cuz no prepared statement
+     * @param useremail
+     * @throws SQLException
+     */
+    public static boolean approveUser (String useremail) {
+
+        Connection database = null;
+        boolean result = false;
+
+        try {
+            database = DatabaseUtil.createConnection();
+            String query = "UPDATE `User` SET `isApproved` = 1 WHERE `email` =?";
+            PreparedStatement preparedStmt = database.prepareStatement(query);
+            preparedStmt.setString(1, useremail);
+            preparedStmt.execute();
+            preparedStmt.close();
+            result = true;
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return result;
+    }
+
+
+
+    public static boolean removeUser(String email) throws SQLException {
+
+        Connection conn = DatabaseUtil.createConnection();
+        String query = "SELECT * FROM `User` WHERE `email` = ?";
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        preparedStmt.setString(1, email);
+        ResultSet userFoundFromDB = preparedStmt.executeQuery();
+
+        if(userFoundFromDB.next()){
+            query = "delete from  `User` where `email` = ?";
+            System.out.println(email + " got deleted");
+            preparedStmt = conn.prepareStatement(query);
+            preparedStmt.setString(1, email);
+
+            // execute the preparedstatement
+            preparedStmt.execute();
+            preparedStmt.close();
+            return true;
+        }
+        else
+            return false;
     }
 }
 

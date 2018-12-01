@@ -12,7 +12,7 @@ public class DatabaseUtil {
     public static Connection createConnection() throws SQLException {
         return DriverManager.getConnection("jdbc:mysql://localhost/softproj?useSSL=false",
                 "root",
-                "0.1onLimiter");
+                "Meeral69");
     }
 
     public static int insertAndGetGeneratedPrimaryKey (Connection database, String query) throws SQLException {

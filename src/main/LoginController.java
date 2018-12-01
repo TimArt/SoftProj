@@ -76,7 +76,14 @@ public class LoginController {
                         break;
 
                     case "RPM":
-                        sceneRoot = FXMLLoader.load (getClass().getResource("RPMpage.fxml"));
+                        //sceneRoot = FXMLLoader.load (getClass().getResource("RPMpage.fxml"));
+                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("RPMpage.fxml"));
+                        Parent root = (Parent)fxmlLoader.load();
+                        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        appStage.setScene(new Scene(root, 800, 600));
+                        RPMcontroller controller = fxmlLoader.<RPMcontroller>getController();
+                        controller.initializeNotifications();
+                        appStage.show();
                         break;
 
                     case "Reviewer":

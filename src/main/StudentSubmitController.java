@@ -9,6 +9,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
@@ -104,6 +106,14 @@ public class StudentSubmitController {
 
                     // execute the prepared statement
                     preparedStmt.execute();
+
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION, " SUCCESSFULLY SUBMITTED ARTIFACT!  ", ButtonType.OK);
+                    alert.showAndWait();
+
+                    if (alert.getResult() == ButtonType.OK) {
+                        //do stuff
+                        alert.close();
+                    }
                 }
 
                 Parent studentRoot = FXMLLoader.load (getClass().getResource("StudentRoot.fxml"));
